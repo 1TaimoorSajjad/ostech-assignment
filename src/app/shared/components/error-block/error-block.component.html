@@ -1,0 +1,17 @@
+<div class="error-block" [class.error-block--warning]="type === 'warning'" [class.error-block--info]="type === 'info'">
+  <mat-icon class="error-block__icon">{{ icon }}</mat-icon>
+  <div class="error-block__content">
+    <h4 class="error-block__title" *ngIf="title">{{ title }}</h4>
+    <p class="error-block__message">{{ message }}</p>
+  </div>
+  <button
+    *ngIf="showRetry"
+    mat-stroked-button
+    color="warn"
+    class="error-block__retry"
+    (click)="onRetry()"
+  >
+    <mat-icon>refresh</mat-icon>
+    {{ retryText }}
+  </button>
+</div>

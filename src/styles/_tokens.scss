@@ -1,0 +1,82 @@
+// Color Tokens
+$color-primary: #3f51b5;
+$color-primary-light: #757de8;
+$color-primary-dark: #002984;
+
+$color-accent: #ff4081;
+$color-accent-light: #ff79b0;
+$color-accent-dark: #c60055;
+
+$color-warn: #f44336;
+$color-warn-light: #ff7961;
+$color-warn-dark: #ba000d;
+
+$color-success: #4caf50;
+$color-success-light: #80e27e;
+$color-success-dark: #087f23;
+
+$color-background: #fafafa;
+$color-surface: #ffffff;
+$color-text-primary: rgba(0, 0, 0, 0.87);
+$color-text-secondary: rgba(0, 0, 0, 0.54);
+$color-text-disabled: rgba(0, 0, 0, 0.38);
+$color-text-hint: rgba(0, 0, 0, 0.38);
+
+$color-divider: rgba(0, 0, 0, 0.12);
+$color-border: rgba(0, 0, 0, 0.12);
+
+// Spacing Tokens
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+$spacing-xxl: 48px;
+
+// Border Radius Tokens
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 16px;
+$border-radius-full: 50%;
+
+// Typography Tokens
+$font-family-primary: Roboto, "Helvetica Neue", sans-serif;
+$font-size-xs: 12px;
+$font-size-sm: 14px;
+$font-size-md: 16px;
+$font-size-lg: 20px;
+$font-size-xl: 24px;
+$font-size-xxl: 34px;
+
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+// Shadow Tokens
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+$shadow-md: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+$shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+$shadow-xl: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+
+// Transition Tokens
+$transition-fast: 150ms ease-in-out;
+$transition-normal: 300ms ease-in-out;
+$transition-slow: 500ms ease-in-out;
+
+// Breakpoint Tokens
+$breakpoint-xs: 0;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+
+// Z-Index Tokens
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;
