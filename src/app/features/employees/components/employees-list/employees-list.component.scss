@@ -192,20 +192,25 @@
 .status-pill {
     display: inline-flex;
     align-items: center;
-    padding: 2px 10px;
-    border-radius: 999px;
+    width: 90px;
+    height: 22px;
+    gap: 4px;
+    padding: 2px 8px 2px 8px;
+    border-radius: 4px;
     font-size: 12px;
     font-weight: 500;
 }
 
 .status-pill--not-invited {
-    background-color: #f3f4f6;
-    color: #4b5563;
+    background-color: #D0D3D9;
+    color: #48505E;
+    align-items: center;
+    justify-content: center;
 }
 
 .status-pill--accepted {
-    background-color: #e7f7ed;
-    color: #15803d;
+    background-color: #E7F8F0;
+    color: #0D824B;
 }
 
 .status-icon {

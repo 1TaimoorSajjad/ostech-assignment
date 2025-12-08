@@ -13,13 +13,13 @@ export class EmployeesListComponent implements OnInit {
   displayedColumns: string[] = [
     'select',
     'name',
+    'actions',
     'client',
     'employeeType',
     'ssn',
     'email',
     'phone',
     'invitationStatus',
-    'actions'
   ];
 
   dataSource = new MatTableDataSource<any>([]);
