@@ -1,0 +1,275 @@
+.page-wrapper {
+    padding: 24px 40px;
+    background-color: #f7f8fb;
+    min-height: 100vh;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+}
+
+.app-topbar {
+    height: 64px;
+    border-bottom: 1px solid #e4e7ec;
+    background-color: #ffffff;
+    padding: 0 32px;
+}
+
+.topbar-center {
+    position: relative;
+}
+
+.topbar-icon {
+    height: 24px;
+    width: 24px;
+    border-radius: 999px;
+    border: 1px solid #e4e7ec;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4px;
+
+    mat-icon {
+        font-size: 18px;
+        color: #101828;
+    }
+}
+
+.topbar-tab {
+    position: relative;
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    font-weight: 500;
+    color: #101828;
+    padding: 0;
+}
+
+.topbar-tab-underline {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 3px;
+    width: 60%;
+    border-radius: 999px;
+    background-color: #111827;
+    bottom: -8px;
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    overflow: hidden;
+    border: 1px solid #e4e7ec;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.page-header {
+    margin-top: 24px;
+    margin-bottom: 12px;
+}
+
+.page-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #101828;
+    margin: 0;
+}
+
+.page-actions {
+    gap: 16px;
+}
+
+.search-wrapper {
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    padding: 6px 10px;
+    min-width: 260px;
+}
+
+.search-icon {
+    font-size: 18px;
+    color: #9ca3af;
+    margin-right: 6px;
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 14px;
+    color: #111827;
+    background: transparent;
+
+    &::placeholder {
+        color: #9ca3af;
+    }
+}
+
+.btn-add-employee {
+    border-radius: 8px;
+    padding: 0 16px;
+    font-size: 14px;
+    text-transform: none;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    mat-icon {
+        font-size: 18px;
+    }
+}
+
+.table-card {
+    margin-top: 16px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e4e7ec;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    overflow: hidden;
+}
+
+.employee-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.employee-table th.mat-header-cell,
+.employee-table td.mat-cell {
+    padding: 10px 16px;
+    font-size: 13px;
+    border-bottom: 1px solid #edf0f4;
+}
+
+.employee-table th.mat-header-cell {
+    font-weight: 500;
+    color: #6b7280;
+    background-color: #f9fafb;
+}
+
+.employee-table td.mat-cell {
+    color: #111827;
+}
+
+.table-row {
+    cursor: pointer;
+
+    &:hover {
+        background-color: #f3f4ff;
+    }
+}
+
+.name-cell .avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.name-meta {
+    display: flex;
+    flex-direction: column;
+}
+
+.name-meta .name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #111827;
+}
+
+.name-meta .sub-meta {
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.status-pill--not-invited {
+    background-color: #f3f4f6;
+    color: #4b5563;
+}
+
+.status-pill--accepted {
+    background-color: #e7f7ed;
+    color: #15803d;
+}
+
+.status-icon {
+    font-size: 16px;
+    margin-right: 4px;
+}
+
+.table-footer {
+    padding: 10px 16px;
+    background-color: #ffffff;
+}
+
+.pagination-meta {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.pagination-controls {
+    gap: 4px;
+}
+
+.pager-btn,
+.pager-page {
+    border-radius: 6px;
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+    padding: 4px 8px;
+    min-width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.pager-page.active {
+    background-color: #111827;
+    color: #ffffff;
+    border-color: #111827;
+}
+
+.pager-btn[disabled] {
+    opacity: 0.4;
+    cursor: default;
+}
+
+@media (max-width: 768px) {
+    .page-wrapper {
+        padding: 16px;
+    }
+
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .page-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .search-wrapper {
+        flex: 1;
+    }
+}

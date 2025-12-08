@@ -1,0 +1,140 @@
+<header class="app-topbar d-flex align-items-center justify-content-between">
+    <div class="topbar-left"></div>
+
+    <div class="topbar-center d-flex flex-column align-items-center justify-content-center">
+        <div class="">
+            <mat-icon>home</mat-icon>
+        </div>
+        <button class="topbar-tab active">
+            Employees
+            <span class="topbar-tab-underline"></span>
+        </button>
+    </div>
+
+    <div class="topbar-right d-flex align-items-center gap-3">
+        <div class="user-avatar">
+            <img src="assets/avatar-admin.png" alt="User" />
+        </div>
+        <mat-icon>keyboard_arrow_down</mat-icon>
+    </div>
+</header>
+
+<main class="page-wrapper">
+    <section class="page-header d-flex justify-content-between align-items-center">
+        <h1 class="page-title">Employees</h1>
+
+        <div class="page-actions d-flex align-items-center gap-3">
+            <div class="search-wrapper d-flex align-items-center">
+                <mat-icon class="search-icon d-flex align-items-center justify-content-center">search</mat-icon>
+                <input class="search-input" type="text" placeholder="Search"
+                    (input)="onSearch($any($event.target).value)" />
+            </div>
+
+            <button mat-raised-button color="primary" class="btn-add-employee" (click)="openAdd()">
+                <mat-icon>add</mat-icon>
+                <span>Add Employee</span>
+            </button>
+        </div>
+    </section>
+
+    <section class="table-card">
+        <table mat-table [dataSource]="dataSource" class="employee-table">
+
+            <ng-container matColumnDef="select">
+                <th mat-header-cell *matHeaderCellDef class="col-select">
+                    <mat-checkbox></mat-checkbox>
+                </th>
+                <td mat-cell *matCellDef="let row" class="col-select">
+                    <mat-checkbox></mat-checkbox>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef>Name</th>
+                <td mat-cell *matCellDef="let row">
+                    <div class="name-cell d-flex align-items-center">
+                        <img [src]="row.avatarUrl" class="avatar" alt="{{ row.firstName }}" />
+                        <div class="name-meta">
+                            <div class="name">{{ row.firstName }} {{ row.lastName }}</div>
+                            <div class="sub-meta">{{ row.gender }}</div>
+                        </div>
+                    </div>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="client">
+                <th mat-header-cell *matHeaderCellDef>Client</th>
+                <td mat-cell *matCellDef="let row">{{ row.client }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="employeeType">
+                <th mat-header-cell *matHeaderCellDef>Employee Type</th>
+                <td mat-cell *matCellDef="let row">{{ row.employeeType }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="ssn">
+                <th mat-header-cell *matHeaderCellDef>SSN</th>
+                <td mat-cell *matCellDef="let row">{{ row.ssnMasked }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef>Email</th>
+                <td mat-cell *matCellDef="let row">{{ row.email }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="phone">
+                <th mat-header-cell *matHeaderCellDef>Phone Number</th>
+                <td mat-cell *matCellDef="let row">{{ row.phone }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="invitationStatus">
+                <th mat-header-cell *matHeaderCellDef>Invitation Status</th>
+                <td mat-cell *matCellDef="let row">
+                    <span class="status-pill" [ngClass]="{
+              'status-pill--not-invited': row.invitationStatus === 'Not Invited',
+              'status-pill--accepted': row.invitationStatus === 'Accepted'
+            }">
+                        <ng-container *ngIf="row.invitationStatus === 'Accepted'">
+                            <mat-icon class="status-icon">check</mat-icon>
+                        </ng-container>
+                        {{ row.invitationStatus }}
+                    </span>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let row">
+                    <button mat-icon-button (click)="openRowMenu(row)">
+                        <mat-icon>more_vert</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="openDetail(row)" class="table-row">
+            </tr>
+        </table>
+
+        <div class="table-footer d-flex justify-content-between align-items-center">
+            <div class="pagination-meta">
+                Page {{ page + 1 }} of {{ totalPages }}
+            </div>
+
+            <div class="pagination-controls d-flex align-items-center gap-2">
+                <button class="pager-btn" [disabled]="page === 0" (click)="goToPrevious()">
+                    <mat-icon>chevron_left</mat-icon>
+                </button>
+
+                <button class="pager-page" *ngFor="let p of pages" [class.active]="p === page + 1"
+                    (click)="goToPage(p)">
+                    {{ p }}
+                </button>
+
+                <button class="pager-btn" [disabled]="page + 1 === totalPages" (click)="goToNext()">
+                    <mat-icon>chevron_right</mat-icon>
+                </button>
+            </div>
+        </div>
+    </section>
+</main>
