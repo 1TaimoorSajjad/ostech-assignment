@@ -99,13 +99,13 @@
                 <th mat-header-cell *matHeaderCellDef>Invitation Status</th>
                 <td mat-cell *matCellDef="let row">
                     <span class="status-pill" [ngClass]="{
-              'status-pill--not-invited': row.invitationStatus === 'Not Invited',
-              'status-pill--accepted': row.invitationStatus === 'Accepted'
+              'status-pill--not-invited': row.invitationStatus === false,
+              'status-pill--accepted': row.invitationStatus === true
             }">
-                        <ng-container *ngIf="row.invitationStatus === 'Accepted'">
+                        <ng-container *ngIf="row.invitationStatus === true">
                             <mat-icon class="status-icon d-flex align-items-center justify-content-center">check</mat-icon>
                         </ng-container>
-                        {{ row.invitationStatus }}
+                        {{ row.invitationStatus ? 'Accepted' : 'Not Invited' }}
                     </span>
                 </td>
             </ng-container>
