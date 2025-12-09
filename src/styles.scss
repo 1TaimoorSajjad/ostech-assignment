@@ -37,3 +37,88 @@ $ostech-assignment-theme: mat.define-light-theme((
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* ======================================
+   Compact Material Form Field Overrides
+   ====================================== */
+.drawer-shell .mat-mdc-form-field {
+  width: 100%;
+}
+
+.drawer-shell .mat-mdc-text-field-wrapper {
+  border-radius: 6px !important;
+  padding: 0 10px !important;
+  height: 36px !important;
+  min-height: 36px !important;
+}
+
+.drawer-shell .mat-mdc-text-field-wrapper .mat-mdc-form-field-flex {
+  height: 36px !important;
+  align-items: center;
+}
+
+.drawer-shell .mdc-text-field--outlined {
+  height: 36px !important;
+}
+
+.drawer-shell .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__leading {
+  border-radius: 6px 0 0 6px !important;
+  border-color: #9ca3af !important;
+}
+
+.drawer-shell .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__trailing {
+  border-radius: 0 6px 6px 0 !important;
+  border-color: #9ca3af !important;
+}
+
+.drawer-shell .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__notch {
+  border-color: #9ca3af !important;
+}
+
+.drawer-shell .mat-mdc-form-field-infix {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  min-height: 36px !important;
+  display: flex;
+  align-items: center;
+}
+
+.drawer-shell .mat-mdc-select-trigger {
+  height: 100%;
+}
+
+.drawer-shell .mat-mdc-select-value,
+.drawer-shell input.mat-mdc-input-element {
+  font-size: 13px;
+}
+
+.drawer-shell .mat-mdc-select-arrow-wrapper {
+  height: 18px;
+}
+
+.drawer-shell .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,
+.drawer-shell .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,
+.drawer-shell .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+  border-color: #9ca3af !important;
+}
+
+/* Validation error styling - smaller */
+.drawer-shell .mat-mdc-form-field-subscript-wrapper {
+  height: auto;
+  min-height: 0;
+  margin-top: 2px;
+}
+
+.drawer-shell .mat-mdc-form-field-error-wrapper {
+  padding: 0 !important;
+}
+
+.drawer-shell .mat-mdc-form-field-hint-wrapper {
+  padding: 0 !important;
+}
+
+.drawer-shell mat-error {
+  font-size: 11px !important;
+  line-height: 1.2;
+  margin-top: 2px;
+}

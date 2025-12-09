@@ -28,39 +28,41 @@
       <section class="section-card">
         <div class="section-title">Basic Details</div>
 
-        <div class="grid-1">
-          <mat-form-field appearance="outline" class="w-full">
-            <mat-label>Client *</mat-label>
+        <div class="form-group full-width">
+          <label class="field-label">Client <span class="required">*</span></label>
+          <mat-form-field appearance="outline">
             <mat-select formControlName="client">
               <mat-option *ngFor="let c of clients" [value]="c">{{ c }}</mat-option>
             </mat-select>
             <mat-error *ngIf="form.get('client')?.hasError('required')">Required</mat-error>
           </mat-form-field>
-
-          
         </div>
 
         <div class="grid-2">
-          <mat-form-field appearance="outline">
-            <mat-label>Worksite Location *</mat-label>
-            <mat-select formControlName="worksiteLocation">
-              <mat-option *ngFor="let w of worksiteLocations" [value]="w">{{ w }}</mat-option>
-            </mat-select>
-            <mat-error *ngIf="form.get('worksiteLocation')?.hasError('required')">Required</mat-error>
-          </mat-form-field>
-          <mat-form-field appearance="outline">
-            <mat-label>Pay Group *</mat-label>
-            <mat-select formControlName="payGroup">
-              <mat-option *ngFor="let p of payGroups" [value]="p">{{ p }}</mat-option>
-            </mat-select>
-            <mat-error *ngIf="form.get('payGroup')?.hasError('required')">Required</mat-error>
-          </mat-form-field>
+          <div class="form-group">
+            <label class="field-label">Worksite Location <span class="required">*</span></label>
+            <mat-form-field appearance="outline">
+              <mat-select formControlName="worksiteLocation">
+                <mat-option *ngFor="let w of worksiteLocations" [value]="w">{{ w }}</mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('worksiteLocation')?.hasError('required')">Required</mat-error>
+            </mat-form-field>
+          </div>
 
-          
+          <div class="form-group">
+            <label class="field-label">Pay Group <span class="required">*</span></label>
+            <mat-form-field appearance="outline">
+              <mat-select formControlName="payGroup">
+                <mat-option *ngFor="let p of payGroups" [value]="p">{{ p }}</mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('payGroup')?.hasError('required')">Required</mat-error>
+            </mat-form-field>
+          </div>
         </div>
-        <div class="grid-1">
-          <mat-form-field appearance="outline" class="w-full">
-            <mat-label>Tax Type *</mat-label>
+
+        <div class="form-group full-width">
+          <label class="field-label">Tax Type <span class="required">*</span></label>
+          <mat-form-field appearance="outline">
             <mat-select formControlName="taxType">
               <mat-option *ngFor="let t of taxTypes" [value]="t">{{ t }}</mat-option>
             </mat-select>
@@ -69,149 +71,158 @@
         </div>
 
         <div class="grid-2">
-          <mat-form-field appearance="outline">
-            <mat-label>First Name *</mat-label>
-            <input matInput formControlName="firstName" />
-            <mat-error *ngIf="form.get('firstName')?.hasError('required')">Required</mat-error>
-          </mat-form-field>
-          
+          <div class="form-group">
+            <label class="field-label">First Name <span class="required">*</span></label>
+            <mat-form-field appearance="outline">
+              <input matInput formControlName="firstName" />
+              <mat-error *ngIf="form.get('firstName')?.hasError('required')">Required</mat-error>
+            </mat-form-field>
+          </div>
 
-          <mat-form-field appearance="outline">
-            <mat-label>Middle Name</mat-label>
-            <input matInput formControlName="middleName" />
-          </mat-form-field>
+          <div class="form-group">
+            <label class="field-label">Middle Name</label>
+            <mat-form-field appearance="outline">
+              <input matInput formControlName="middleName" />
+            </mat-form-field>
+          </div>
         </div>
 
         <div class="grid-2">
-          <mat-form-field appearance="outline">
-            <mat-label>Last Name *</mat-label>
-            <input matInput formControlName="lastName" />
-            <mat-error *ngIf="form.get('lastName')?.hasError('required')">Required</mat-error>
-          </mat-form-field>
+          <div class="form-group">
+            <label class="field-label">Last Name <span class="required">*</span></label>
+            <mat-form-field appearance="outline">
+              <input matInput formControlName="lastName" />
+              <mat-error *ngIf="form.get('lastName')?.hasError('required')">Required</mat-error>
+            </mat-form-field>
+          </div>
 
-          <mat-form-field appearance="outline">
-            <mat-label>Email Address *</mat-label>
-            <input matInput formControlName="email" />
-            <mat-error *ngIf="form.get('email')?.hasError('required')">Required</mat-error>
-            <mat-error *ngIf="form.get('email')?.hasError('email')">Invalid email</mat-error>
-          </mat-form-field>
+          <div class="form-group">
+            <label class="field-label">Email Address <span class="required">*</span></label>
+            <mat-form-field appearance="outline">
+              <input matInput formControlName="email" />
+              <mat-error *ngIf="form.get('email')?.hasError('required')">Required</mat-error>
+              <mat-error *ngIf="form.get('email')?.hasError('email')">Invalid email</mat-error>
+            </mat-form-field>
+          </div>
         </div>
 
         <div class="grid-2">
-          <mat-form-field appearance="outline">
-            <mat-label>Phone Number *</mat-label>
-            <input matInput formControlName="phone" />
-            <mat-error *ngIf="form.get('phone')?.hasError('required')">Required</mat-error>
-          </mat-form-field>
+          <div class="form-group">
+            <label class="field-label">Phone Number <span class="required">*</span></label>
+            <mat-form-field appearance="outline">
+              <input matInput formControlName="phone" />
+              <mat-error *ngIf="form.get('phone')?.hasError('required')">Required</mat-error>
+            </mat-form-field>
+          </div>
 
-          <mat-form-field appearance="outline">
-            <mat-label>Gender *</mat-label>
-            <mat-select formControlName="gender">
-              <mat-option *ngFor="let g of genders" [value]="g">{{ g }}</mat-option>
-            </mat-select>
-            <mat-error *ngIf="form.get('gender')?.hasError('required')">Required</mat-error>
-          </mat-form-field>
+          <div class="form-group">
+            <label class="field-label">Gender <span class="required">*</span></label>
+            <mat-form-field appearance="outline">
+              <mat-select formControlName="gender">
+                <mat-option *ngFor="let g of genders" [value]="g">{{ g }}</mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('gender')?.hasError('required')">Required</mat-error>
+            </mat-form-field>
+          </div>
         </div>
 
         <div class="grid-2">
-          <mat-form-field appearance="outline">
-            <mat-label>Marital Status *</mat-label>
-            <mat-select formControlName="maritalStatus">
-              <mat-option *ngFor="let s of maritalStatuses" [value]="s">{{ s }}</mat-option>
-            </mat-select>
-            <mat-error *ngIf="form.get('maritalStatus')?.hasError('required')">Required</mat-error>
-          </mat-form-field>
+          <div class="form-group">
+            <label class="field-label">Marital Status <span class="required">*</span></label>
+            <mat-form-field appearance="outline">
+              <mat-select formControlName="maritalStatus">
+                <mat-option *ngFor="let s of maritalStatuses" [value]="s">{{ s }}</mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('maritalStatus')?.hasError('required')">Required</mat-error>
+            </mat-form-field>
+          </div>
 
-          <mat-form-field appearance="outline">
-            <mat-label>Date of Birth *</mat-label>
-            <input matInput type="date" formControlName="dob" />
-            <mat-error *ngIf="form.get('dob')?.hasError('required')">Required</mat-error>
-          </mat-form-field>
+          <div class="form-group">
+            <label class="field-label">Date of Birth <span class="required">*</span></label>
+            <mat-form-field appearance="outline">
+              <input matInput type="date" formControlName="dob" />
+              <mat-error *ngIf="form.get('dob')?.hasError('required')">Required</mat-error>
+            </mat-form-field>
+          </div>
         </div>
 
         <div class="grid-2">
-          <mat-form-field appearance="outline">
-            <mat-label>Original Hire Date *</mat-label>
-            <input matInput type="date" formControlName="originalHireDate" />
-            <mat-error *ngIf="form.get('originalHireDate')?.hasError('required')">Required</mat-error>
-          </mat-form-field>
+          <div class="form-group">
+            <label class="field-label">Original Hire Date <span class="required">*</span></label>
+            <mat-form-field appearance="outline">
+              <input matInput type="date" formControlName="originalHireDate" />
+              <mat-error *ngIf="form.get('originalHireDate')?.hasError('required')">Required</mat-error>
+            </mat-form-field>
+          </div>
 
-          <mat-form-field appearance="outline">
-            <mat-label>Employment Type *</mat-label>
-            <mat-select formControlName="employmentType">
-              <mat-option *ngFor="let e of employmentTypes" [value]="e">{{ e }}</mat-option>
-            </mat-select>
-            <mat-error *ngIf="form.get('employmentType')?.hasError('required')">Required</mat-error>
-          </mat-form-field>
-        </div>
-
-        <div class="grid-2">
-          <mat-form-field appearance="outline">
-            <mat-label>Zip Code</mat-label>
-            <input matInput formControlName="zipCode" />
-          </mat-form-field>
-
-          <mat-form-field appearance="outline">
-            <mat-label>City</mat-label>
-            <input matInput formControlName="city" />
-          </mat-form-field>
-        </div>
-
-        <div class="grid-2">
-          <mat-form-field appearance="outline" class="full">
-            <mat-label>State</mat-label>
-            <input matInput formControlName="state" />
-          </mat-form-field>
+          <div class="form-group">
+            <label class="field-label">Employment Type <span class="required">*</span></label>
+            <mat-form-field appearance="outline">
+              <mat-select formControlName="employmentType">
+                <mat-option *ngFor="let e of employmentTypes" [value]="e">{{ e }}</mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('employmentType')?.hasError('required')">Required</mat-error>
+            </mat-form-field>
+          </div>
         </div>
       </section>
 
-      <!-- Address Details -->
       <section class="section-card">
         <div class="section-title">Address Details</div>
 
-        <mat-form-field appearance="outline" class="full">
-          <mat-label>Address 1</mat-label>
-          <input matInput formControlName="address1" />
-        </mat-form-field>
-
-        <mat-form-field appearance="outline" class="full">
-          <mat-label>Address 2</mat-label>
-          <input matInput formControlName="address2" />
-        </mat-form-field>
-
-        <div class="grid-2">
+        <div class="form-group full-width">
+          <label class="field-label">Address 1</label>
           <mat-form-field appearance="outline">
-            <mat-label>Country</mat-label>
-            <mat-select formControlName="country">
-              <mat-option value="US">United States</mat-option>
-              <mat-option value="CA">Canada</mat-option>
-              <mat-option value="UK">United Kingdom</mat-option>
-            </mat-select>
+            <input matInput formControlName="address1" />
           </mat-form-field>
-
+        </div>
+        <div class="form-group full-width">
+          <label class="field-label">Address 2</label>
           <mat-form-field appearance="outline">
-            <mat-label>Zip Code</mat-label>
-            <input matInput formControlName="zipCode" />
+            <input matInput formControlName="address2" />
           </mat-form-field>
         </div>
 
         <div class="grid-2">
-          <mat-form-field appearance="outline">
-            <mat-label>City</mat-label>
-            <input matInput formControlName="city" />
-          </mat-form-field>
+          <div class="form-group">
+            <label class="field-label">Country</label>
+            <mat-form-field appearance="outline">
+              <mat-select formControlName="country">
+                <mat-option value="US">United States</mat-option>
+                <mat-option value="CA">Canada</mat-option>
+                <mat-option value="UK">United Kingdom</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
 
-          <mat-form-field appearance="outline">
-            <mat-label>State</mat-label>
-            <input matInput formControlName="state" />
-          </mat-form-field>
+          <div class="form-group">
+            <label class="field-label">Zip Code</label>
+            <mat-form-field appearance="outline">
+              <input matInput formControlName="zipCode" />
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="field-label">City</label>
+            <mat-form-field appearance="outline">
+              <input matInput formControlName="city" />
+            </mat-form-field>
+          </div>
+
+          <div class="form-group">
+            <label class="field-label">State</label>
+            <mat-form-field appearance="outline">
+              <input matInput formControlName="state" />
+            </mat-form-field>
+          </div>
         </div>
       </section>
 
       <!-- bottom actions (sticky footer) -->
-      <div class="drawer-actions">
-        <button mat-button type="button" (click)="onCancelClick()" [disabled]="saving">Cancel</button>
-        <button mat-raised-button color="primary" type="submit" [disabled]="saving">
+      <div class="drawer-actions" >
+        <button mat-raised-button color="primary" type="submit" [disabled]="saving" style="background-color: #323D51;">
           <mat-progress-spinner *ngIf="saving" mode="indeterminate" diameter="16"></mat-progress-spinner>
           <span *ngIf="!saving">Save</span>
         </button>

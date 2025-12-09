@@ -6,7 +6,6 @@
   background: #fff;
 }
 
-/* header */
 .drawer-header {
   padding: 16px 20px;
   border-bottom: 1px solid #eef0f3;
@@ -19,14 +18,12 @@
   font-weight: 600;
 }
 
-/* body: scrollable area */
 .drawer-body {
   padding: 20px;
   overflow-y: auto;
   flex: 1 1 auto;
 }
 
-/* avatar drop area */
 .avatar-drop {
   height: 140px;
   border: 2px dashed #e6e9ee;
@@ -61,7 +58,6 @@
   text-decoration: underline;
 }
 
-/* preview */
 .avatar-preview {
   max-height: 120px;
   object-fit: cover;
@@ -69,40 +65,64 @@
   border: 1px solid #e6e9ee;
 }
 
-/* section card: rounded white blocks with title */
 .section-card {
   background: #fff;
   border: 1px solid #eef0f3;
   border-radius: 10px;
   padding: 14px;
+  padding-top: 24px;
   margin-bottom: 16px;
+  margin-top: 20px;
   box-shadow: 0 1px 2px rgba(15, 23, 42, 0.02);
+  position: relative;
 }
 
 .section-title {
+  position: absolute;
+  top: -10px;
+  left: 14px;
   font-size: 13px;
   font-weight: 600;
   color: #111827;
-  margin-bottom: 10px;
+  background: #fff;
+  padding: 0 8px;
 }
 
-/* form layout grid */
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 12px;
+  gap: 16px;
+  margin-bottom: 8px;
 }
 
-/* single column full width */
 .grid-1 {
   display: grid;
   grid-template-columns: 1fr;
   gap: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
-/* single column full width field */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.full-width {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.field-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.field-label .required {
+  color: #ef4444;
+}
+
 .full {
   width: 100%;
 }
@@ -111,22 +131,87 @@
   width: 100%;
 }
 
-/* make mat-form-field look like design */
-.mat-form-field {
+.drawer-shell .mat-mdc-form-field {
   width: 100%;
 }
 
-.mat-form-field-appearance-outline .mat-form-field-outline {
-  border-color: #e6e9ee;
-  border-radius: 8px;
+.drawer-shell .mat-mdc-text-field-wrapper {
+  border-radius: 6px !important;
+  padding: 0 10px !important;
+  height: 36px !important;
+  min-height: 36px !important;
 }
 
-.mat-form-field-appearance-outline .mat-form-field-outline-start,
-.mat-form-field-appearance-outline .mat-form-field-outline-end {
-  border-radius: 8px;
+.drawer-shell .mat-mdc-text-field-wrapper .mat-mdc-form-field-flex {
+  height: 36px !important;
+  align-items: center;
 }
 
-/* actions area sticky bottom */
+.drawer-shell .mdc-text-field--outlined {
+  height: 36px !important;
+}
+
+.drawer-shell .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__leading {
+  border-radius: 6px 0 0 6px !important;
+  border-color: #9ca3af !important;
+}
+
+.drawer-shell .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__trailing {
+  border-radius: 0 6px 6px 0 !important;
+  border-color: #9ca3af !important;
+}
+
+.drawer-shell .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__notch {
+  border-color: #9ca3af !important;
+}
+
+.drawer-shell .mat-mdc-form-field-infix {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  min-height: 36px !important;
+  display: flex;
+  align-items: center;
+}
+
+.drawer-shell .mat-mdc-select-trigger {
+  height: 100%;
+}
+
+.drawer-shell .mat-mdc-select-value,
+.drawer-shell input.mat-mdc-input-element {
+  font-size: 13px;
+}
+
+.drawer-shell .mat-mdc-select-arrow-wrapper {
+  height: 18px;
+}
+
+.drawer-shell .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,
+.drawer-shell .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,
+.drawer-shell .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+  border-color: #9ca3af !important;
+}
+
+.drawer-shell .mat-mdc-form-field-subscript-wrapper {
+  height: auto;
+  min-height: 0;
+  margin-top: 2px;
+}
+
+.drawer-shell .mat-mdc-form-field-error-wrapper {
+  padding: 0 !important;
+}
+
+.drawer-shell .mat-mdc-form-field-hint-wrapper {
+  padding: 0 !important;
+}
+
+.drawer-shell mat-error {
+  font-size: 11px !important;
+  line-height: 1.2;
+  margin-top: 2px;
+}
+
 .drawer-actions {
   display: flex;
   justify-content: flex-end;
@@ -138,7 +223,6 @@
   bottom: 0;
 }
 
-/* responsive */
 @media (max-width: 900px) {
   .grid-2 {
     grid-template-columns: 1fr;

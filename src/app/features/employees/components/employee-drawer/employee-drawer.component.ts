@@ -75,7 +75,6 @@ export class EmployeeDrawerComponent implements OnInit, OnChanges {
       address1: [''],
       address2: [''],
       country: [null],
-      // add any other fields you need
     });
   }
 
@@ -88,7 +87,6 @@ export class EmployeeDrawerComponent implements OnInit, OnChanges {
       return;
     }
 
-    // patch form values from employee
     this.form.patchValue({
       client: (emp as any).client ?? null,
       worksiteLocation: (emp as any).worksiteLocation ?? null,
@@ -112,12 +110,10 @@ export class EmployeeDrawerComponent implements OnInit, OnChanges {
       country: (emp as any).country ?? null
     });
 
-    // avatar preview from URL if present
     this.avatarPreview = emp.avatarUrl ?? null;
     this.avatarFile = null;
   }
 
-  // ensure yyyy-mm-dd for native date inputs if strings are used
   private asDateValue(value: string | Date): string {
     const d = value ? new Date(value) : new Date();
     const mm = (d.getMonth() + 1).toString().padStart(2, '0');
@@ -125,12 +121,10 @@ export class EmployeeDrawerComponent implements OnInit, OnChanges {
     return `${d.getFullYear()}-${mm}-${dd}`;
   }
 
-  // ---------- Image Upload ----------
   onFilePicked(event: Event | FileList | null): void {
     let file: File | null = null;
     if (!event) return;
     if ((event as FileList).length !== undefined) {
-      // drag-drop may provide FileList
       file = (event as FileList)[0] ?? null;
     } else {
       const input = event as unknown as HTMLInputElement;
@@ -177,11 +171,9 @@ export class EmployeeDrawerComponent implements OnInit, OnChanges {
       email: this.form.value.email,
       phone: this.form.value.phone,
       avatarUrl: this.avatarPreview ?? (this.employee ? this.employee.avatarUrl : undefined),
-      // createdAt: this.employee ? this.employee.createdAt : new Date().toISOString()
-      // additional fields we will keep in the "any" part for flexibility
+  
     } as Employee & any;
 
-    // attach custom fields
     (payload as any).client = this.form.value.client;
     (payload as any).worksiteLocation = this.form.value.worksiteLocation;
     (payload as any).payGroup = this.form.value.payGroup;
@@ -199,10 +191,8 @@ export class EmployeeDrawerComponent implements OnInit, OnChanges {
     (payload as any).address2 = this.form.value.address2;
     (payload as any).country = this.form.value.country;
 
-    // simulate save latency (you have no backend in the assignment)
     setTimeout(() => {
       this.saving = false;
-      // emit created/updated employee to parent component
       this.saved.emit(payload);
     }, 600);
   }
