@@ -1,25 +1,27 @@
-<header class="app-topbar d-flex align-items-center justify-content-between">
-    <div class="topbar-left"></div>
+<mat-sidenav-container class="drawer-container">
+  <mat-sidenav-content>
+    <header class="app-topbar d-flex align-items-center justify-content-between">
+        <div class="topbar-left"></div>
 
-    <div class="topbar-center d-flex flex-column align-items-center justify-content-center">
-        <div class="">
-            <mat-icon>home</mat-icon>
+        <div class="topbar-center d-flex flex-column align-items-center justify-content-center">
+            <div class="">
+                <mat-icon>home</mat-icon>
+            </div>
+            <button class="topbar-tab active">
+                Employees
+                <span class="topbar-tab-underline"></span>
+            </button>
         </div>
-        <button class="topbar-tab active">
-            Employees
-            <span class="topbar-tab-underline"></span>
-        </button>
-    </div>
 
-    <div class="topbar-right d-flex align-items-center gap-3">
-        <div class="user-avatar">
-            <img src="assets/avatar-admin.png" alt="User" />
+        <div class="topbar-right d-flex align-items-center gap-3">
+            <div class="user-avatar">
+                <img src="assets/avatar-admin.png" alt="User" />
+            </div>
+            <mat-icon>keyboard_arrow_down</mat-icon>
         </div>
-        <mat-icon>keyboard_arrow_down</mat-icon>
-    </div>
-</header>
+    </header>
 
-<main class="page-wrapper">
+    <main class="page-wrapper">
     <section class="page-header d-flex justify-content-between align-items-center">
         <h1 class="page-title">Employees</h1>
 
@@ -139,3 +141,13 @@
         </div>
     </section>
 </main>
+  </mat-sidenav-content>
+
+  <mat-sidenav #drawer position="end" mode="over" class="employee-drawer">
+    <app-employee-drawer
+      [employee]="editingEmployee"
+      (close)="drawer.close()"
+      (saved)="onSaved()"
+    ></app-employee-drawer>
+  </mat-sidenav>
+</mat-sidenav-container>

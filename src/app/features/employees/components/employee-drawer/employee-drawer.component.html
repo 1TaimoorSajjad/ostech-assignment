@@ -1,0 +1,127 @@
+<div class="drawer-header">
+  <div class="drawer-header-left">
+    <mat-icon>add</mat-icon>
+    <h2>{{ isEditMode ? 'Edit Employee' : 'Add Employee' }}</h2>
+  </div>
+  <button mat-icon-button (click)="onCancel()" class="close-btn">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+<div class="drawer-content">
+  <!-- Photo Upload Section -->
+  <div class="photo-upload-section">
+    <div class="photo-drop-zone" (click)="onBrowseClick()">
+      <div *ngIf="!previewUrl" class="photo-placeholder">
+        <mat-icon>image</mat-icon>
+        <p>Drop your photo here or <span class="browse-link">browse</span></p>
+      </div>
+      <img *ngIf="previewUrl" [src]="previewUrl" alt="Preview" class="photo-preview" />
+    </div>
+    <input type="file" id="photoInput" accept="image/*" (change)="onFileSelected($event)" style="display: none;" />
+  </div>
+
+  <!-- Basic Details Section -->
+  <div class="form-section">
+    <h3 class="section-title">Basic Details</h3>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Client <span class="required">*</span></mat-label>
+      <mat-select [(ngModel)]="formData.client">
+        <mat-option *ngFor="let client of clients" [value]="client">
+          {{ client }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="form-row">
+      <mat-form-field appearance="outline" class="half-width">
+        <mat-label>Worksite Location <span class="required">*</span></mat-label>
+        <mat-select [(ngModel)]="formData.worksiteLocation">
+          <mat-option *ngFor="let location of worksiteLocations" [value]="location">
+            {{ location }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="half-width">
+        <mat-label>Pay Group <span class="required">*</span></mat-label>
+        <mat-select [(ngModel)]="formData.payGroup">
+          <mat-option *ngFor="let group of payGroups" [value]="group">
+            {{ group }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Tax Type <span class="required">*</span></mat-label>
+      <mat-select [(ngModel)]="formData.taxType">
+        <mat-option *ngFor="let type of taxTypes" [value]="type">
+          {{ type }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="form-row">
+      <mat-form-field appearance="outline" class="half-width">
+        <mat-label>First Name <span class="required">*</span></mat-label>
+        <input matInput [(ngModel)]="formData.firstName" placeholder="Enter {{ 'label' }}" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="half-width">
+        <mat-label>Middle Name</mat-label>
+        <input matInput [(ngModel)]="formData.middleName" placeholder="Enter {{ 'label' }}" />
+      </mat-form-field>
+    </div>
+
+    <div class="form-row">
+      <mat-form-field appearance="outline" class="half-width">
+        <mat-label>Last Name</mat-label>
+        <input matInput [(ngModel)]="formData.lastName" placeholder="Enter {{ 'label' }}" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="half-width">
+        <mat-label>Email Address <span class="required">*</span></mat-label>
+        <input matInput type="email" [(ngModel)]="formData.email" placeholder="Enter {{ 'label' }}" />
+      </mat-form-field>
+    </div>
+
+    <div class="form-row">
+      <mat-form-field appearance="outline" class="half-width">
+        <mat-label>Phone Number <span class="required">*</span></mat-label>
+        <input matInput [(ngModel)]="formData.phoneNumber" placeholder="Enter {{ 'label' }}" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="half-width">
+        <mat-label>Gender <span class="required">*</span></mat-label>
+        <mat-select [(ngModel)]="formData.gender">
+          <mat-option *ngFor="let gender of genders" [value]="gender">
+            {{ gender }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="form-row">
+      <mat-form-field appearance="outline" class="half-width">
+        <mat-label>Marital Status <span class="required">*</span></mat-label>
+        <mat-select [(ngModel)]="formData.maritalStatus">
+          <mat-option *ngFor="let status of maritalStatuses" [value]="status">
+            {{ status }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="half-width">
+        <mat-label>Date of Birth <span class="required">*</span></mat-label>
+        <input matInput type="date" [(ngModel)]="formData.dateOfBirth" />
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+
+<div class="drawer-footer">
+  <button mat-stroked-button (click)="onCancel()" class="cancel-btn">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSave()" class="save-btn">Save</button>
+</div>

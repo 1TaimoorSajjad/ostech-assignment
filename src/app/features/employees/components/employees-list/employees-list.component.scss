@@ -278,3 +278,24 @@
         flex: 1;
     }
 }
+
+// Drawer styles
+:host {
+  display: block;
+  height: 100vh;
+}
+
+.drawer-container {
+  height: 100%;
+}
+
+::ng-deep {
+  .employee-drawer {
+    width: 600px;
+    max-width: 90vw;
+  }
+
+  .mat-drawer-backdrop.mat-drawer-shown {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}

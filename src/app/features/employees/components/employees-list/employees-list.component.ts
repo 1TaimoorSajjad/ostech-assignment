@@ -128,6 +128,7 @@ export class EmployeesListComponent implements OnInit {
   }
 
   openAdd(): void {
+    console.log("Button click", this.drawer);
     this.editingEmployee = null;
     this.drawer?.open();
   }
