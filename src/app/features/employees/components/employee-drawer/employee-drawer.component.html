@@ -140,9 +140,13 @@
           <div class="form-group">
             <label class="field-label">Date of Birth <span class="required">*</span></label>
             <mat-form-field appearance="outline">
-              <input matInput type="date" formControlName="dob" />
-              <mat-error *ngIf="form.get('dob')?.hasError('required')">Required</mat-error>
+            <input matInput formControlName="dob" [matDatepicker]="picker">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="form.get('dob')?.hasError('required')">Required</mat-error>
+
             </mat-form-field>
+
           </div>
         </div>
 
@@ -150,8 +154,11 @@
           <div class="form-group">
             <label class="field-label">Original Hire Date <span class="required">*</span></label>
             <mat-form-field appearance="outline">
-              <input matInput type="date" formControlName="originalHireDate" />
+              <input matInput formControlName="originalHireDate" [matDatepicker]="picker2">
+              <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
               <mat-error *ngIf="form.get('originalHireDate')?.hasError('required')">Required</mat-error>
+
             </mat-form-field>
           </div>
 

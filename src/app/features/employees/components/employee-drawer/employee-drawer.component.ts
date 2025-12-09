@@ -10,6 +10,7 @@ import {
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Employee } from '../../models/employee.model';
+import { EmployeesService } from '../../services/employees.service';
 
 @Component({
   selector: 'app-employee-drawer',
@@ -25,11 +26,9 @@ export class EmployeeDrawerComponent implements OnInit, OnChanges {
   form!: FormGroup;
   saving = false;
 
-  // upload preview
   avatarPreview: string | null = null;
   avatarFile: File | null = null;
 
-  // dummy select options - replace or feed from parent if needed
   clients = ['3M Library Systems', 'Alpha Technologies', 'BlueOrbit Solar'];
   payGroups = ['Weekly', 'Bi-Weekly', 'Monthly'];
   worksiteLocations = ['NYC Office', 'Remote', 'LA Office'];
@@ -38,7 +37,7 @@ export class EmployeeDrawerComponent implements OnInit, OnChanges {
   maritalStatuses = ['Single', 'Married', 'Divorced'];
   employmentTypes = ['Full Time', 'Part Time', 'Contract'];
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private employeeService: EmployeesService) { }
 
   ngOnInit(): void {
     this.buildForm();
@@ -191,10 +190,15 @@ export class EmployeeDrawerComponent implements OnInit, OnChanges {
     (payload as any).address2 = this.form.value.address2;
     (payload as any).country = this.form.value.country;
 
-    setTimeout(() => {
-      this.saving = false;
-      this.saved.emit(payload);
-    }, 600);
+    this.employeeService.createEmployee(payload).subscribe({
+      next: (response) => {
+        this.saving = false;
+        this.saved.emit(response.data);
+      },
+      error: (_err) => {
+        this.saving = false;
+      }
+    });
   }
 
   onCancelClick(): void {
