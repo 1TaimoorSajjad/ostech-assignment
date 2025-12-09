@@ -158,10 +158,24 @@
 }
 
 .table-row {
+    &:hover {
+        background-color: #f9fafb;
+    }
+}
+
+.name-cell-td {
     cursor: pointer;
 
     &:hover {
         background-color: #f3f4ff;
+    }
+
+    .name {
+        color: #2563eb;
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 }
 

@@ -1,0 +1,268 @@
+<div class="employee-summary-shell">
+    <!-- Main App Header -->
+    <header class="app-topbar d-flex align-items-center justify-content-between">
+        <div class="topbar-left"></div>
+
+        <div class="topbar-center d-flex flex-column align-items-center justify-content-center">
+            <div class="">
+                <mat-icon>home</mat-icon>
+            </div>
+            <button class="topbar-tab active">
+                Employees
+                <span class="topbar-tab-underline"></span>
+            </button>
+        </div>
+
+        <div class="topbar-right d-flex align-items-center gap-3">
+            <div class="user-avatar">
+                <img src="assets/avatar-admin.png" alt="User" />
+            </div>
+            <mat-icon>keyboard_arrow_down</mat-icon>
+        </div>
+    </header>
+
+    <!-- Loading State -->
+    <div *ngIf="loading" class="loading-container">
+        <mat-progress-spinner mode="indeterminate" diameter="48"></mat-progress-spinner>
+        <p>Loading employee details...</p>
+    </div>
+
+    <ng-container *ngIf="!loading">
+    <!-- Breadcrumb navigation -->
+    <div class="topbar-breadcrumb">
+        <div class="breadcrumb">
+            <span class="crumb clickable" (click)="goBack()">
+                <mat-icon class="breadcrumb-icon">home</mat-icon>
+            </span>
+            <span class="crumb-separator">›</span>
+            <span class="crumb clickable" (click)="goBack()">Employees</span>
+            <span class="crumb-separator">›</span>
+            <span class="crumb">{{employee.firstName}} {{employee.lastName}}</span>
+            <span class="crumb-separator">›</span>
+            <span class="crumb active">Employee Summary</span>
+        </div>
+    </div>
+
+    <div class="page-inner">
+        <!-- left sidebar -->
+        <aside class="left-nav">
+            <nav>
+                <button class="nav-item active">Employee Summary</button>
+                <button class="nav-item" (click)="goBack()">Employees</button>
+            </nav>
+        </aside>
+
+        <!-- main content area -->
+        <section class="content-area">
+            <div class="page-head">
+                <div class="d-flex flex-column">
+                    <div class="breadcrumb">
+                        <span class="crumb clickable" (click)="goBack()">
+                            <mat-icon class="breadcrumb-icon">home</mat-icon>
+                        </span>
+                        <span class="crumb-separator">›</span>
+                        <span class="crumb clickable" (click)="goBack()">Employees</span>
+                        <span class="crumb-separator">›</span>
+                        <span class="crumb">{{employee.firstName}} {{employee.lastName}}</span>
+                        <span class="crumb-separator">›</span>
+                        <span class="crumb active">Employee Summary</span>
+                    </div>
+                    <h2>Employee Summary</h2>
+                </div>
+                <div class="tabs-row">
+                    <button class="tab" [class.active]="employee.client === 'Coco Technologies'">{{employee.client || 'Client'}}</button>
+                </div>
+            </div>
+
+            <div class="summary-grid">
+                <!-- PROFILE CARD (top-left spanning columns) -->
+                <div class="profile-card">
+                    <div class="profile-left">
+                        <img class="avatar" [src]="employee.avatarUrl" alt="avatar" />
+                        <div class="profile-meta">
+                            <div class="name-row">
+                                <h3>{{employee.firstName}} {{employee.lastName}}</h3>
+                                <div class="status-badges">
+                                    <span class="status">{{employee.status}}</span>
+                                    <span class="chip" *ngIf="employee.staffing">Staffing</span>
+                                </div>
+                            </div>
+                            <div class="ssn">SSN: *****{{employee.ssn}}</div>
+
+                            <div class="icons-row">
+                                <button mat-icon-button aria-label="social"><mat-icon>cloud</mat-icon></button>
+                                <button mat-icon-button aria-label="badge"><mat-icon>badge</mat-icon></button>
+                                <button mat-icon-button aria-label="assign-badge"><mat-icon>add</mat-icon></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-right">
+                        <div class="contacts">
+                            <div class="contact-line"><mat-icon>email</mat-icon> {{employee.email}}</div>
+                            <div class="contact-line"><mat-icon>phone</mat-icon> {{employee.phone}}</div>
+                            <div class="contact-line"><mat-icon>place</mat-icon> {{employee.address.line1}}</div>
+                        </div>
+
+                        <div class="skills">
+                            <mat-chip-set>
+                                <mat-chip *ngFor="let s of employee.skills">{{s}}</mat-chip>
+                            </mat-chip-set>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LEFT: very large form (main) -->
+                <div class="main-form">
+                    <form *ngIf="form" [formGroup]="form" class="summary-form">
+                        <div class="section">
+                            <h4 class="section-title">Personal Information</h4>
+
+                            <div class="row-2">
+                                <mat-form-field appearance="outline"><mat-label>Client Name</mat-label>
+                                    <mat-select formControlName="client">
+                                        <mat-option *ngFor="let c of clients" [value]="c">{{c}}</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+
+                                <div class="checkbox-field">
+                                    <mat-checkbox formControlName="w2UseMainAddress"
+                                        (change)="toggleW2MainUse($event)">W2 Use Main Address</mat-checkbox>
+                                </div>
+                            </div>
+
+                            <div class="row-2">
+                                <mat-form-field appearance="outline"><mat-label>Employee Tax Type</mat-label>
+                                    <mat-select formControlName="employeeTaxType">
+                                        <mat-option *ngFor="let t of employeeTaxTypes" [value]="t">{{t}}</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+
+                                <mat-form-field appearance="outline"><mat-label>SSN</mat-label>
+                                    <input matInput formControlName="ssn" />
+                                </mat-form-field>
+                            </div>
+
+                            <div class="row-2">
+                                <mat-form-field appearance="outline"><mat-label>Position Name</mat-label><input matInput
+                                        formControlName="positionName" /></mat-form-field>
+                                <mat-form-field appearance="outline"><mat-label>Employee ID</mat-label><input matInput
+                                        formControlName="employeeId" /></mat-form-field>
+                            </div>
+
+                            <div class="row-2">
+                                <mat-form-field appearance="outline"><mat-label>First Name</mat-label><input matInput
+                                        formControlName="firstName" /></mat-form-field>
+                                <mat-form-field appearance="outline"><mat-label>Middle Name</mat-label><input matInput
+                                        formControlName="middleName" /></mat-form-field>
+                            </div>
+
+                            <div class="row-2">
+                                <mat-form-field appearance="outline"><mat-label>Last Name</mat-label><input matInput
+                                        formControlName="lastName" /></mat-form-field>
+                                <mat-form-field appearance="outline"><mat-label>Email</mat-label><input matInput
+                                        formControlName="email" /></mat-form-field>
+                            </div>
+
+                            <!-- add more fields in similar patterns if required... -->
+                        </div>
+
+                        <!-- W2 Address -->
+                        <div class="section">
+                            <h4 class="section-title">W2 Address</h4>
+                            <div class="row-2">
+                                <mat-form-field appearance="outline"><mat-label>Address Line 1</mat-label><input
+                                        matInput formControlName="w2AddressLine1" /></mat-form-field>
+                                <mat-form-field appearance="outline"><mat-label>Address Line 2</mat-label><input
+                                        matInput formControlName="w2AddressLine2" /></mat-form-field>
+                            </div>
+
+                            <div class="row-2">
+                                <mat-form-field appearance="outline"><mat-label>Zip</mat-label><input matInput
+                                        formControlName="w2Zip" /></mat-form-field>
+                                <mat-form-field appearance="outline"><mat-label>City</mat-label><input matInput
+                                        formControlName="w2City" /></mat-form-field>
+                            </div>
+
+                            <div class="row-2">
+                                <mat-form-field appearance="outline"><mat-label>State</mat-label><input matInput
+                                        formControlName="w2State" /></mat-form-field>
+                            </div>
+                        </div>
+
+                      
+
+                        <!-- many more sections omitted in template for brevity but follow the same pattern -->
+                    </form>
+                </div>
+
+                <!-- RIGHT COLUMN: cards -->
+                <aside class="right-cards">
+                    <div class="card small">
+                        <div class="card-header">Check Message</div>
+                        <div class="card-body">
+                            <mat-form-field appearance="outline"><mat-label>Start Date</mat-label><input matInput
+                                    type="date" /></mat-form-field>
+                            <mat-form-field appearance="outline"><mat-label>End Date</mat-label><input matInput
+                                    type="date" /></mat-form-field>
+                            <mat-form-field appearance="outline"><mat-label>Message Text</mat-label><input
+                                    matInput /></mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="card small">
+                        <div class="card-header">Location</div>
+                        <div class="card-body locations">
+                            <div *ngFor="let loc of employee.locations; let i = index" class="location-row">
+                                <div class="loc-title">{{loc.title}}</div>
+                                <div class="loc-sub">{{loc.subtitle}}</div>
+                                <div class="loc-meta">
+                                    <div>Pay: ${{loc.payRate}}</div>
+                                    <div>Bill: ${{loc.billRate}}</div>
+                                </div>
+                                <button mat-icon-button
+                                    (click)="removeLocation(i)"><mat-icon>more_vert</mat-icon></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <ng-container *ngIf="form" [formGroup]="form">
+                    <div class="card small">
+                        <div class="card-header">Other Information</div>
+                        <div class="card-body">
+                            <mat-form-field appearance="outline"><mat-label>Days Preferences</mat-label><input matInput
+                                    formControlName="daysPreferences" /></mat-form-field>
+                            <mat-form-field appearance="outline"><mat-label>Shift Preferences</mat-label><input matInput
+                                    formControlName="shiftPreferences" /></mat-form-field>
+                            <mat-form-field appearance="outline"><mat-label>Reporting To</mat-label><input matInput
+                                    formControlName="reportingTo" /></mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="card small">
+                        <div class="card-header">Residential Address</div>
+                        <div class="card-body">
+                            <mat-form-field appearance="outline"><mat-label>Address 1</mat-label><input matInput
+                                    formControlName="address1" /></mat-form-field>
+                            <mat-form-field appearance="outline"><mat-label>City</mat-label><input matInput
+                                    formControlName="city" /></mat-form-field>
+                            <mat-form-field appearance="outline"><mat-label>State</mat-label><input matInput
+                                    formControlName="state" /></mat-form-field>
+                        </div>
+                    </div>
+                    </ng-container>
+                </aside>
+            </div>
+
+            <!-- bottom sticky actions -->
+            <div class="page-actions">
+                <button mat-button (click)="cancel()">Cancel</button>
+                <button mat-raised-button color="primary" (click)="save()" [disabled]="saving">
+                    <mat-progress-spinner *ngIf="saving" diameter="16" mode="indeterminate"></mat-progress-spinner>
+                    <span *ngIf="!saving">Update</span>
+                </button>
+            </div>
+        </section>
+    </div>
+    </ng-container>
+</div>

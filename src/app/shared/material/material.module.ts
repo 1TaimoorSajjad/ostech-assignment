@@ -14,6 +14,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const materialModules = [
   MatProgressSpinnerModule,
@@ -29,7 +31,9 @@ const materialModules = [
   MatDatepickerModule,
   MatNativeDateModule,
   MatMenuModule,
-  MatDividerModule
+  MatDividerModule,
+  MatChipsModule,
+  MatSnackBarModule
 ];
 
 @NgModule({

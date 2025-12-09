@@ -1,0 +1,389 @@
+.employee-summary-shell {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    color: #0f1724;
+    background: #ffffff;
+    min-height: 100vh;
+}
+
+.app-topbar {
+    height: 64px;
+    border-bottom: 1px solid #e4e7ec;
+    background-color: #ffffff;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.topbar-center {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.topbar-tab {
+    position: relative;
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    font-weight: 500;
+    color: #101828;
+    padding: 0;
+    cursor: pointer;
+}
+
+.topbar-tab-underline {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 3px;
+    width: 120%;
+    border-radius: 999px;
+    background-color: #111827;
+    bottom: -8px;
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    overflow: hidden;
+    border: 1px solid #e4e7ec;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 64px);
+    gap: 16px;
+
+    p {
+        color: #6b7280;
+        font-size: 14px;
+    }
+}
+
+.topbar-breadcrumb {
+    border-bottom: 1px solid #e6e9ee;
+    padding: 12px 24px;
+    background: #fff;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.breadcrumb-icon {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+    color: #6b7280;
+}
+
+.crumb-separator {
+    color: #9ca3af;
+}
+
+.breadcrumb .crumb {
+    color: #6b7280;
+}
+
+.breadcrumb .active {
+    font-weight: 600;
+    color: #111827;
+}
+
+.breadcrumb .clickable {
+    cursor: pointer;
+    &:hover {
+        color: #2563eb;
+    }
+}
+
+.page-inner {
+    display: flex;
+    min-height: calc(100vh - 120px);
+}
+
+.left-nav {
+    width: 200px;
+    border-right: 1px solid #eef0f3;
+    padding: 18px;
+    background: #fff;
+}
+
+.left-nav .nav-item {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: none;
+    background: transparent;
+    margin-bottom: 6px;
+    cursor: pointer;
+}
+
+.left-nav .nav-item.active {
+    background: #f7fafc;
+    font-weight: 600;
+}
+
+.content-area {
+    flex: 1;
+    padding: 20px 26px;
+    background: #f8fafc;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.page-head h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.tabs-row {
+    display: flex;
+    gap: 8px;
+}
+
+.tab {
+    border: 1px solid #e6e9ee;
+    background: #fff;
+    padding: 6px 12px;
+    border-radius: 8px;
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 360px;
+    gap: 16px;
+}
+
+.profile-card {
+    grid-column: 1 / span 3;
+    display: flex;
+    justify-content: space-between;
+    background: #fff;
+    border: 1px solid #eef0f3;
+    padding: 16px;
+    border-radius: 10px;
+    margin-bottom: 6px;
+}
+
+.profile-left {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.avatar {
+    width: 84px;
+    height: 84px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1px solid #e6e9ee;
+}
+
+.profile-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.profile-meta h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.status-badges {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.status {
+    background: #e6ffed;
+    color: #056839;
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.chip {
+    background: #f3f4f6;
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+.profile-right {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    color: #374151;
+}
+
+.skills {
+    margin-left: 12px;
+}
+
+.main-form {
+    background: transparent;
+    grid-column: 1 / span 2;
+}
+
+.summary-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.section {
+    background: #fff;
+    border: 1px solid #eef0f3;
+    padding: 12px;
+    border-radius: 10px;
+}
+
+.section-title {
+    margin: 0 0 8px 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.checkbox-field {
+    display: flex;
+    align-items: center;
+    height: 56px;
+}
+
+.right-cards {
+    grid-column: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.card.small {
+    background: #fff;
+    border: 1px solid #eef0f3;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.card-header {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.location-row {
+    background: #fafafa;
+    border-radius: 8px;
+    padding: 8px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #f1f5f9;
+}
+
+.loc-title {
+    font-weight: 600;
+}
+
+.loc-sub {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.loc-meta {
+    margin-left: auto;
+    text-align: right;
+    font-size: 12px;
+    color: #374151;
+}
+
+.page-actions {
+    margin-top: 16px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    position: sticky;
+    bottom: 0;
+    padding-top: 12px;
+    background: transparent;
+}
+
+@media (max-width: 1100px) {
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-card {
+        grid-column: 1;
+    }
+
+    .main-form {
+        grid-column: 1;
+    }
+
+    .right-cards {
+        grid-column: 1;
+    }
+
+    .row-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+.mat-form-field {
+    width: 100%;
+}
+
+.mat-form-field .mat-form-field-outline {
+    border-color: #e6e9ee;
+    border-radius: 8px;
+}

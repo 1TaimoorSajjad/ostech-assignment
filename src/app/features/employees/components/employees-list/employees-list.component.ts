@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSidenav } from '@angular/material/sidenav';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -38,7 +39,7 @@ export class EmployeesListComponent implements OnInit {
   editingEmployee: Employee | null = null;
 
 
-  constructor(private employeeService: EmployeesService) {}
+  constructor(private employeeService: EmployeesService, private router: Router) {}
 
   ngOnInit(): void {
       this.getEmployees();
@@ -49,7 +50,6 @@ export class EmployeesListComponent implements OnInit {
       next: (response) => {
         let filtered = [...response];
 
-        // SEARCH
         if (this.query.trim()) {
           const q = this.query.trim().toLowerCase();
           filtered = filtered.filter(e =>
@@ -102,7 +102,7 @@ export class EmployeesListComponent implements OnInit {
   }
 
   openDetail(row: Employee): void {
-    console.log('Open detail for:', row);
+    this.router.navigate(['/employees', row.id]);
   }
 
   onSaved(evt: Employee): void {
