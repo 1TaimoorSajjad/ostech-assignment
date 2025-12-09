@@ -37,47 +37,6 @@ export class EmployeesListComponent implements OnInit {
   @ViewChild('drawer') drawer?: MatSidenav;
   editingEmployee: Employee | null = null;
 
-  private dummyEmployees: Employee[] = [
-    {
-      id: '1',
-      firstName: 'Aliah',
-      lastName: 'Lane',
-      gender: 'Female',
-      client: '3M Library Systems',
-      employeeType: 'Full Time',
-      ssn: '7890',
-      email: 'aliah@gmail.com',
-      phone: '+1-212-534-7890',
-      avatarUrl: 'assets/avatar1.png',
-      invitationStatus: 'Not Invited'
-    },
-    {
-      id: '2',
-      firstName: 'Drew',
-      lastName: 'Cano',
-      gender: 'Male',
-      client: 'Alpha Technologies',
-      employeeType: 'Part Time',
-      ssn: '5960',
-      email: 'drew@yahoo.com',
-      phone: '+1-212-678-9012',
-      avatarUrl: 'assets/avatar2.png',
-      invitationStatus: 'Accepted'
-    },
-    {
-      id: '3',
-      firstName: 'Kiara',
-      lastName: 'Mills',
-      gender: 'Female',
-      client: 'BlueOrbit Solar',
-      employeeType: 'Contract',
-      ssn: '1234',
-      email: 'kiara@blueorbit.com',
-      phone: '+1-310-342-8861',
-      avatarUrl: 'assets/avatar3.png',
-      invitationStatus: 'Accepted'
-    }
-  ];
 
   constructor(private employeeService: EmployeesService) {}
 
@@ -146,16 +105,27 @@ export class EmployeesListComponent implements OnInit {
     console.log('Open detail for:', row);
   }
 
-  // SAVE CALLBACK FROM DRAWER
-  onSaved(): void {
+  onSaved(evt: Employee): void {
+    const index = this.dataSource.data.findIndex(e => e.id === evt.id);
+    if (index !== -1) {
+      this.dataSource.data[index] = { ...evt, ssnMasked: `***${evt.ssn}` };
+      this.dataSource.data = [...this.dataSource.data];
+    } else {
+      this.getEmployees();
+    }
     this.drawer?.close();
-    // this.load();
   }
 
+
   deleteEmployee(emp: Employee): void {
-    if (!confirm(`Delete ${emp.firstName}?`)) return;
-    this.dummyEmployees = this.dummyEmployees.filter(e => e.id !== emp.id);
-    // this.load();
+    this.employeeService.deleteEmployee(emp.id).subscribe({
+      next: () => {
+        this.dataSource.data = this.dataSource.data.filter(e => e.id !== emp.id);
+      },
+      error: (_err) => {
+        console.error('Failed to delete employee', _err);
+      }
+    });
   }
 
   get totalPages(): number {

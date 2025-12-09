@@ -165,10 +165,10 @@
           <div class="form-group">
             <label class="field-label">Employment Type <span class="required">*</span></label>
             <mat-form-field appearance="outline">
-              <mat-select formControlName="employmentType">
+              <mat-select formControlName="employeeType">
                 <mat-option *ngFor="let e of employmentTypes" [value]="e">{{ e }}</mat-option>
               </mat-select>
-              <mat-error *ngIf="form.get('employmentType')?.hasError('required')">Required</mat-error>
+              <mat-error *ngIf="form.get('employeeType')?.hasError('required')">Required</mat-error>
             </mat-form-field>
           </div>
         </div>
@@ -227,11 +227,9 @@
         </div>
       </section>
 
-      <!-- bottom actions (sticky footer) -->
       <div class="drawer-actions" >
-        <button mat-raised-button color="primary" type="submit" [disabled]="saving" style="background-color: #323D51;">
-          <mat-progress-spinner *ngIf="saving" mode="indeterminate" diameter="16"></mat-progress-spinner>
-          <span *ngIf="!saving">Save</span>
+        <button mat-raised-button color="primary" type="submit" style="background-color: #323D51;">
+          <span >{{this.employee ? 'Update': 'Save'}}</span>
         </button>
       </div>
     </form>

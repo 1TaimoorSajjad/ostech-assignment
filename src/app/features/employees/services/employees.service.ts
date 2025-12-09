@@ -19,15 +19,19 @@ export class EmployeesService {
     return this.http.get<SingleEmployeeResponse>(`${this.API_URL}/employee/${id}`);
   }
 
-  createEmployee(employee: Partial<Employee>): Observable<SingleEmployeeResponse> {
-    return this.http.post<SingleEmployeeResponse>(`${this.API_URL}/employees`, employee);
+  createEmployee(employee: Partial<Employee>, id?: any): Observable<SingleEmployeeResponse> {
+    if(id){
+      return this.http.put<SingleEmployeeResponse>(`${this.API_URL}/employees/${id}`, employee);
+    }else {
+      return this.http.post<SingleEmployeeResponse>(`${this.API_URL}/employees`, employee);
+    }
   }
 
   updateEmployee(id: number, employee: Partial<Employee>): Observable<SingleEmployeeResponse> {
     return this.http.put<SingleEmployeeResponse>(`${this.API_URL}/employees/${id}`, employee);
   }
 
-  deleteEmployee(id: number): Observable<SingleEmployeeResponse> {
+  deleteEmployee(id: any): Observable<SingleEmployeeResponse> {
     return this.http.delete<SingleEmployeeResponse>(`${this.API_URL}/employees/${id}`);
   }
 }

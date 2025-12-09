@@ -24,7 +24,6 @@ export class EmployeeDrawerComponent implements OnInit, OnChanges {
   @Output() cancel = new EventEmitter<void>();
 
   form!: FormGroup;
-  saving = false;
 
   avatarPreview: string | null = null;
   avatarFile: File | null = null;
@@ -67,7 +66,7 @@ export class EmployeeDrawerComponent implements OnInit, OnChanges {
       maritalStatus: [null, Validators.required],
       dob: [null, Validators.required],
       originalHireDate: [null, Validators.required],
-      employmentType: [null, Validators.required],
+      employeeType: [null, Validators.required],
       zipCode: [''],
       city: [''],
       state: [''],
@@ -100,7 +99,7 @@ export class EmployeeDrawerComponent implements OnInit, OnChanges {
       maritalStatus: (emp as any).maritalStatus ?? null,
       dob: (emp as any).dob ? this.asDateValue((emp as any).dob) : null,
       originalHireDate: (emp as any).originalHireDate ? this.asDateValue((emp as any).originalHireDate) : null,
-      employmentType: (emp as any).employmentType ?? null,
+      employeeType: (emp as any).employeeType ?? null,
       zipCode: (emp as any).zipCode ?? '',
       city: (emp as any).city ?? '',
       state: (emp as any).state ?? '',
@@ -153,18 +152,14 @@ export class EmployeeDrawerComponent implements OnInit, OnChanges {
     reader.readAsDataURL(file);
   }
 
-  // ---------- Save / Cancel ----------
   submit(): void {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       return;
     }
 
-    this.saving = true;
 
-    // build employee object from form
     const payload: Employee = {
-      id: this.employee ? this.employee.id : '',
       firstName: this.form.value.firstName,
       lastName: this.form.value.lastName,
       email: this.form.value.email,
@@ -182,7 +177,7 @@ export class EmployeeDrawerComponent implements OnInit, OnChanges {
     (payload as any).maritalStatus = this.form.value.maritalStatus;
     (payload as any).dob = this.form.value.dob;
     (payload as any).originalHireDate = this.form.value.originalHireDate;
-    (payload as any).employmentType = this.form.value.employmentType;
+    (payload as any).employeeType = this.form.value.employeeType;
     (payload as any).zipCode = this.form.value.zipCode;
     (payload as any).city = this.form.value.city;
     (payload as any).state = this.form.value.state;
@@ -190,13 +185,11 @@ export class EmployeeDrawerComponent implements OnInit, OnChanges {
     (payload as any).address2 = this.form.value.address2;
     (payload as any).country = this.form.value.country;
 
-    this.employeeService.createEmployee(payload).subscribe({
-      next: (response) => {
-        this.saving = false;
-        this.saved.emit(response.data);
+    this.employeeService.createEmployee(payload, this.employee?.id).subscribe({
+      next: (response:any) => {
+        this.saved.emit(response);
       },
       error: (_err) => {
-        this.saving = false;
       }
     });
   }
