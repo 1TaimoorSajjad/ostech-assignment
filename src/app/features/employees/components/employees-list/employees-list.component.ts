@@ -88,12 +88,30 @@ export class EmployeesListComponent implements OnInit {
   getEmployees(){
     this.employeeService.getEmployees().subscribe({
       next: (response) => {
-        console.log(response);
-        const mapped = response.map((e: Employee) => ({
+        let filtered = [...response];
+
+        // SEARCH
+        if (this.query.trim()) {
+          const q = this.query.trim().toLowerCase();
+          filtered = filtered.filter(e =>
+            `${e.firstName} ${e.lastName}`.toLowerCase().includes(q) ||
+            e.email.toLowerCase().includes(q) ||
+            e.client.toLowerCase().includes(q)
+          );
+        }
+
+        this.total = filtered.length;
+        const start = this.page * this.size;
+        const end = start + this.size;
+        const paged = filtered.slice(start, end);
+
+        const mapped = paged.map(e => ({
           ...e,
           ssnMasked: `***${e.ssn}`
         }));
+
         this.dataSource.data = mapped;
+        this.loading = false;
       },
       error: (_err) => {
         this.error = 'Failed to load employees';
@@ -102,42 +120,11 @@ export class EmployeesListComponent implements OnInit {
     });
   }
 
-  load(): void {
-    this.loading = true;
-    this.error = null;
-
-    setTimeout(() => {
-      let filtered = [...this.dummyEmployees];
-
-      // SEARCH
-      if (this.query.trim()) {
-        const q = this.query.trim().toLowerCase();
-        filtered = filtered.filter(e =>
-          `${e.firstName} ${e.lastName}`.toLowerCase().includes(q) ||
-          e.email.toLowerCase().includes(q) ||
-          e.client.toLowerCase().includes(q)
-        );
-      }
-
-      this.total = filtered.length;
-      const start = this.page * this.size;
-      const end = start + this.size;
-      const paged = filtered.slice(start, end);
-
-      const mapped = paged.map(e => ({
-        ...e,
-        ssnMasked: `***${e.ssn}`
-      }));
-
-      this.dataSource.data = mapped;
-      this.loading = false;
-    }, 400);
-  }
 
   onSearch(term: string): void {
     this.query = term;
     this.page = 0;
-    this.load();
+    this.getEmployees();
   }
 
   openAdd(): void {
@@ -161,13 +148,13 @@ export class EmployeesListComponent implements OnInit {
   // SAVE CALLBACK FROM DRAWER
   onSaved(): void {
     this.drawer?.close();
-    this.load();
+    // this.load();
   }
 
   deleteEmployee(emp: Employee): void {
     if (!confirm(`Delete ${emp.firstName}?`)) return;
     this.dummyEmployees = this.dummyEmployees.filter(e => e.id !== emp.id);
-    this.load();
+    // this.load();
   }
 
   get totalPages(): number {
@@ -184,19 +171,19 @@ export class EmployeesListComponent implements OnInit {
   goToPrevious(): void {
     if (this.page === 0) return;
     this.page--;
-    this.load();
+    this.getEmployees();
   }
 
   goToNext(): void {
     if (this.page + 1 >= this.totalPages) return;
     this.page++;
-    this.load();
+    this.getEmployees();
   }
 
   goToPage(p: number): void {
     const newPage = p - 1;
     if (newPage === this.page) return;
     this.page = newPage;
-    this.load();
+    this.getEmployees();
   }
 }
