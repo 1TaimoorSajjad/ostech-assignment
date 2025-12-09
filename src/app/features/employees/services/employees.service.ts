@@ -7,5 +7,27 @@ import { Employee, EmployeeResponse, SingleEmployeeResponse } from '../models/em
   providedIn: 'root'
 })
 export class EmployeesService {
+  private readonly API_URL = 'https://69373625f8dc350aff33ae81.mockapi.io/api/v1';
 
+  constructor(private http: HttpClient) {}
+
+  getEmployees(): Observable<any> {
+    return this.http.get<any>(`${this.API_URL}/employees`);
+  }
+
+  getEmployee(id: number): Observable<SingleEmployeeResponse> {
+    return this.http.get<SingleEmployeeResponse>(`${this.API_URL}/employee/${id}`);
+  }
+
+  createEmployee(employee: Partial<Employee>): Observable<SingleEmployeeResponse> {
+    return this.http.post<SingleEmployeeResponse>(`${this.API_URL}/create`, employee);
+  }
+
+  updateEmployee(id: number, employee: Partial<Employee>): Observable<SingleEmployeeResponse> {
+    return this.http.put<SingleEmployeeResponse>(`${this.API_URL}/update/${id}`, employee);
+  }
+
+  deleteEmployee(id: number): Observable<SingleEmployeeResponse> {
+    return this.http.delete<SingleEmployeeResponse>(`${this.API_URL}/delete/${id}`);
+  }
 }

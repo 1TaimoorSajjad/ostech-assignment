@@ -3,6 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatSidenav } from '@angular/material/sidenav';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Employee } from '../../models/employee.model';
+import { EmployeesService } from '../../services/employees.service';
 
 @Component({
   selector: 'app-employees-list',
@@ -78,8 +79,27 @@ export class EmployeesListComponent implements OnInit {
     }
   ];
 
+  constructor(private employeeService: EmployeesService) {}
+
   ngOnInit(): void {
-    this.load();
+      this.getEmployees();
+  }
+
+  getEmployees(){
+    this.employeeService.getEmployees().subscribe({
+      next: (response) => {
+        console.log(response);
+        const mapped = response.map((e: Employee) => ({
+          ...e,
+          ssnMasked: `***${e.ssn}`
+        }));
+        this.dataSource.data = mapped;
+      },
+      error: (_err) => {
+        this.error = 'Failed to load employees';
+        this.loading = false;
+      }
+    });
   }
 
   load(): void {
