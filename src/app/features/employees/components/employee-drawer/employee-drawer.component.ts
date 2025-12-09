@@ -85,28 +85,7 @@ export class EmployeeDrawerComponent implements OnInit, OnChanges {
       return;
     }
 
-    this.form.patchValue({
-      client: (emp as any).client ?? null,
-      worksiteLocation: (emp as any).worksiteLocation ?? null,
-      payGroup: (emp as any).payGroup ?? null,
-      taxType: (emp as any).taxType ?? null,
-      firstName: emp.firstName ?? '',
-      middleName: (emp as any).middleName ?? '',
-      lastName: emp.lastName ?? '',
-      email: emp.email ?? '',
-      phone: emp.phone ?? '',
-      gender: (emp as any).gender ?? null,
-      maritalStatus: (emp as any).maritalStatus ?? null,
-      dob: (emp as any).dob ? this.asDateValue((emp as any).dob) : null,
-      originalHireDate: (emp as any).originalHireDate ? this.asDateValue((emp as any).originalHireDate) : null,
-      employeeType: (emp as any).employeeType ?? null,
-      zipCode: (emp as any).zipCode ?? '',
-      city: (emp as any).city ?? '',
-      state: (emp as any).state ?? '',
-      address1: (emp as any).address1 ?? '',
-      address2: (emp as any).address2 ?? '',
-      country: (emp as any).country ?? null
-    });
+    this.form.patchValue({...emp});
 
     this.avatarPreview = emp.avatarUrl ?? null;
     this.avatarFile = null;
@@ -157,34 +136,7 @@ export class EmployeeDrawerComponent implements OnInit, OnChanges {
       this.form.markAllAsTouched();
       return;
     }
-
-
-    const payload: Employee = {
-      firstName: this.form.value.firstName,
-      lastName: this.form.value.lastName,
-      email: this.form.value.email,
-      phone: this.form.value.phone,
-      avatarUrl: this.avatarPreview ?? (this.employee ? this.employee.avatarUrl : undefined),
-  
-    } as Employee & any;
-
-    (payload as any).client = this.form.value.client;
-    (payload as any).worksiteLocation = this.form.value.worksiteLocation;
-    (payload as any).payGroup = this.form.value.payGroup;
-    (payload as any).taxType = this.form.value.taxType;
-    (payload as any).middleName = this.form.value.middleName;
-    (payload as any).gender = this.form.value.gender;
-    (payload as any).maritalStatus = this.form.value.maritalStatus;
-    (payload as any).dob = this.form.value.dob;
-    (payload as any).originalHireDate = this.form.value.originalHireDate;
-    (payload as any).employeeType = this.form.value.employeeType;
-    (payload as any).zipCode = this.form.value.zipCode;
-    (payload as any).city = this.form.value.city;
-    (payload as any).state = this.form.value.state;
-    (payload as any).address1 = this.form.value.address1;
-    (payload as any).address2 = this.form.value.address2;
-    (payload as any).country = this.form.value.country;
-
+    const payload =this.form.value
     this.employeeService.createEmployee(payload, this.employee?.id).subscribe({
       next: (response:any) => {
         this.saved.emit(response);
