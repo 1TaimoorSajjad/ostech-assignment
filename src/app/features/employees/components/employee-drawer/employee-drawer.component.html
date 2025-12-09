@@ -1,127 +1,221 @@
-<div class="drawer-header">
-  <div class="drawer-header-left">
-    <mat-icon>add</mat-icon>
-    <h2>{{ isEditMode ? 'Edit Employee' : 'Add Employee' }}</h2>
-  </div>
-  <button mat-icon-button (click)="onCancel()" class="close-btn">
-    <mat-icon>close</mat-icon>
-  </button>
-</div>
+<div class="drawer-shell">
+  <div class="drawer-header d-flex align-items-center justify-content-between">
+    <div class="drawer-title d-flex align-items-center gap-2">
+      <button mat-icon-button disabled class="icon-round"><mat-icon>add</mat-icon></button>
+      <h3>Add Employee</h3>
+    </div>
 
-<div class="drawer-content">
-  <!-- Photo Upload Section -->
-  <div class="photo-upload-section">
-    <div class="photo-drop-zone" (click)="onBrowseClick()">
-      <div *ngIf="!previewUrl" class="photo-placeholder">
-        <mat-icon>image</mat-icon>
-        <p>Drop your photo here or <span class="browse-link">browse</span></p>
+    <button mat-icon-button (click)="onCancelClick()"><mat-icon>close</mat-icon></button>
+  </div>
+
+  <div class="drawer-body">
+    <!-- avatar upload area -->
+    <div class="avatar-drop" (drop)="onDrop($event)" (dragover)="onDragOver($event)"
+      (click)="$event.stopPropagation(); fileInput.click()">
+      <input #fileInput type="file" accept="image/*" hidden (change)="onFilePicked($any($event.target).files)" />
+      <ng-container *ngIf="avatarPreview; else emptyDrop">
+        <img [src]="avatarPreview" alt="avatar preview" class="avatar-preview" />
+      </ng-container>
+      <ng-template #emptyDrop>
+        <div class="avatar-placeholder">
+          <mat-icon>image</mat-icon>
+          <div class="drop-label">Drop your photo here or <span class="browse-link">browse</span></div>
+        </div>
+      </ng-template>
+    </div>
+
+    <form [formGroup]="form" class="full-form" (ngSubmit)="submit()">
+      <section class="section-card">
+        <div class="section-title">Basic Details</div>
+
+        <div class="grid-1">
+          <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Client *</mat-label>
+            <mat-select formControlName="client">
+              <mat-option *ngFor="let c of clients" [value]="c">{{ c }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="form.get('client')?.hasError('required')">Required</mat-error>
+          </mat-form-field>
+
+          
+        </div>
+
+        <div class="grid-2">
+          <mat-form-field appearance="outline">
+            <mat-label>Worksite Location *</mat-label>
+            <mat-select formControlName="worksiteLocation">
+              <mat-option *ngFor="let w of worksiteLocations" [value]="w">{{ w }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="form.get('worksiteLocation')?.hasError('required')">Required</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Pay Group *</mat-label>
+            <mat-select formControlName="payGroup">
+              <mat-option *ngFor="let p of payGroups" [value]="p">{{ p }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="form.get('payGroup')?.hasError('required')">Required</mat-error>
+          </mat-form-field>
+
+          
+        </div>
+        <div class="grid-1">
+          <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Tax Type *</mat-label>
+            <mat-select formControlName="taxType">
+              <mat-option *ngFor="let t of taxTypes" [value]="t">{{ t }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="form.get('taxType')?.hasError('required')">Required</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="grid-2">
+          <mat-form-field appearance="outline">
+            <mat-label>First Name *</mat-label>
+            <input matInput formControlName="firstName" />
+            <mat-error *ngIf="form.get('firstName')?.hasError('required')">Required</mat-error>
+          </mat-form-field>
+          
+
+          <mat-form-field appearance="outline">
+            <mat-label>Middle Name</mat-label>
+            <input matInput formControlName="middleName" />
+          </mat-form-field>
+        </div>
+
+        <div class="grid-2">
+          <mat-form-field appearance="outline">
+            <mat-label>Last Name *</mat-label>
+            <input matInput formControlName="lastName" />
+            <mat-error *ngIf="form.get('lastName')?.hasError('required')">Required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Email Address *</mat-label>
+            <input matInput formControlName="email" />
+            <mat-error *ngIf="form.get('email')?.hasError('required')">Required</mat-error>
+            <mat-error *ngIf="form.get('email')?.hasError('email')">Invalid email</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="grid-2">
+          <mat-form-field appearance="outline">
+            <mat-label>Phone Number *</mat-label>
+            <input matInput formControlName="phone" />
+            <mat-error *ngIf="form.get('phone')?.hasError('required')">Required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Gender *</mat-label>
+            <mat-select formControlName="gender">
+              <mat-option *ngFor="let g of genders" [value]="g">{{ g }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="form.get('gender')?.hasError('required')">Required</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="grid-2">
+          <mat-form-field appearance="outline">
+            <mat-label>Marital Status *</mat-label>
+            <mat-select formControlName="maritalStatus">
+              <mat-option *ngFor="let s of maritalStatuses" [value]="s">{{ s }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="form.get('maritalStatus')?.hasError('required')">Required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Date of Birth *</mat-label>
+            <input matInput type="date" formControlName="dob" />
+            <mat-error *ngIf="form.get('dob')?.hasError('required')">Required</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="grid-2">
+          <mat-form-field appearance="outline">
+            <mat-label>Original Hire Date *</mat-label>
+            <input matInput type="date" formControlName="originalHireDate" />
+            <mat-error *ngIf="form.get('originalHireDate')?.hasError('required')">Required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Employment Type *</mat-label>
+            <mat-select formControlName="employmentType">
+              <mat-option *ngFor="let e of employmentTypes" [value]="e">{{ e }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="form.get('employmentType')?.hasError('required')">Required</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="grid-2">
+          <mat-form-field appearance="outline">
+            <mat-label>Zip Code</mat-label>
+            <input matInput formControlName="zipCode" />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>City</mat-label>
+            <input matInput formControlName="city" />
+          </mat-form-field>
+        </div>
+
+        <div class="grid-2">
+          <mat-form-field appearance="outline" class="full">
+            <mat-label>State</mat-label>
+            <input matInput formControlName="state" />
+          </mat-form-field>
+        </div>
+      </section>
+
+      <!-- Address Details -->
+      <section class="section-card">
+        <div class="section-title">Address Details</div>
+
+        <mat-form-field appearance="outline" class="full">
+          <mat-label>Address 1</mat-label>
+          <input matInput formControlName="address1" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full">
+          <mat-label>Address 2</mat-label>
+          <input matInput formControlName="address2" />
+        </mat-form-field>
+
+        <div class="grid-2">
+          <mat-form-field appearance="outline">
+            <mat-label>Country</mat-label>
+            <mat-select formControlName="country">
+              <mat-option value="US">United States</mat-option>
+              <mat-option value="CA">Canada</mat-option>
+              <mat-option value="UK">United Kingdom</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Zip Code</mat-label>
+            <input matInput formControlName="zipCode" />
+          </mat-form-field>
+        </div>
+
+        <div class="grid-2">
+          <mat-form-field appearance="outline">
+            <mat-label>City</mat-label>
+            <input matInput formControlName="city" />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>State</mat-label>
+            <input matInput formControlName="state" />
+          </mat-form-field>
+        </div>
+      </section>
+
+      <!-- bottom actions (sticky footer) -->
+      <div class="drawer-actions">
+        <button mat-button type="button" (click)="onCancelClick()" [disabled]="saving">Cancel</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="saving">
+          <mat-progress-spinner *ngIf="saving" mode="indeterminate" diameter="16"></mat-progress-spinner>
+          <span *ngIf="!saving">Save</span>
+        </button>
       </div>
-      <img *ngIf="previewUrl" [src]="previewUrl" alt="Preview" class="photo-preview" />
-    </div>
-    <input type="file" id="photoInput" accept="image/*" (change)="onFileSelected($event)" style="display: none;" />
+    </form>
   </div>
-
-  <!-- Basic Details Section -->
-  <div class="form-section">
-    <h3 class="section-title">Basic Details</h3>
-
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Client <span class="required">*</span></mat-label>
-      <mat-select [(ngModel)]="formData.client">
-        <mat-option *ngFor="let client of clients" [value]="client">
-          {{ client }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <div class="form-row">
-      <mat-form-field appearance="outline" class="half-width">
-        <mat-label>Worksite Location <span class="required">*</span></mat-label>
-        <mat-select [(ngModel)]="formData.worksiteLocation">
-          <mat-option *ngFor="let location of worksiteLocations" [value]="location">
-            {{ location }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field appearance="outline" class="half-width">
-        <mat-label>Pay Group <span class="required">*</span></mat-label>
-        <mat-select [(ngModel)]="formData.payGroup">
-          <mat-option *ngFor="let group of payGroups" [value]="group">
-            {{ group }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Tax Type <span class="required">*</span></mat-label>
-      <mat-select [(ngModel)]="formData.taxType">
-        <mat-option *ngFor="let type of taxTypes" [value]="type">
-          {{ type }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <div class="form-row">
-      <mat-form-field appearance="outline" class="half-width">
-        <mat-label>First Name <span class="required">*</span></mat-label>
-        <input matInput [(ngModel)]="formData.firstName" placeholder="Enter {{ 'label' }}" />
-      </mat-form-field>
-
-      <mat-form-field appearance="outline" class="half-width">
-        <mat-label>Middle Name</mat-label>
-        <input matInput [(ngModel)]="formData.middleName" placeholder="Enter {{ 'label' }}" />
-      </mat-form-field>
-    </div>
-
-    <div class="form-row">
-      <mat-form-field appearance="outline" class="half-width">
-        <mat-label>Last Name</mat-label>
-        <input matInput [(ngModel)]="formData.lastName" placeholder="Enter {{ 'label' }}" />
-      </mat-form-field>
-
-      <mat-form-field appearance="outline" class="half-width">
-        <mat-label>Email Address <span class="required">*</span></mat-label>
-        <input matInput type="email" [(ngModel)]="formData.email" placeholder="Enter {{ 'label' }}" />
-      </mat-form-field>
-    </div>
-
-    <div class="form-row">
-      <mat-form-field appearance="outline" class="half-width">
-        <mat-label>Phone Number <span class="required">*</span></mat-label>
-        <input matInput [(ngModel)]="formData.phoneNumber" placeholder="Enter {{ 'label' }}" />
-      </mat-form-field>
-
-      <mat-form-field appearance="outline" class="half-width">
-        <mat-label>Gender <span class="required">*</span></mat-label>
-        <mat-select [(ngModel)]="formData.gender">
-          <mat-option *ngFor="let gender of genders" [value]="gender">
-            {{ gender }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-
-    <div class="form-row">
-      <mat-form-field appearance="outline" class="half-width">
-        <mat-label>Marital Status <span class="required">*</span></mat-label>
-        <mat-select [(ngModel)]="formData.maritalStatus">
-          <mat-option *ngFor="let status of maritalStatuses" [value]="status">
-            {{ status }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field appearance="outline" class="half-width">
-        <mat-label>Date of Birth <span class="required">*</span></mat-label>
-        <input matInput type="date" [(ngModel)]="formData.dateOfBirth" />
-      </mat-form-field>
-    </div>
-  </div>
-</div>
-
-<div class="drawer-footer">
-  <button mat-stroked-button (click)="onCancel()" class="cancel-btn">Cancel</button>
-  <button mat-raised-button color="primary" (click)="onSave()" class="save-btn">Save</button>
 </div>

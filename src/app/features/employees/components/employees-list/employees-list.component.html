@@ -146,7 +146,7 @@
   <mat-sidenav #drawer position="end" mode="over" class="employee-drawer">
     <app-employee-drawer
       [employee]="editingEmployee"
-      (close)="drawer.close()"
+      (cancel)="drawer.close()"
       (saved)="onSaved()"
     ></app-employee-drawer>
   </mat-sidenav>
