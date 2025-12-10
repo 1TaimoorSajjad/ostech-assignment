@@ -219,74 +219,748 @@
                         <div class="col-lg-6">
                             <div class="d-flex flex-column rounded-3 overflow-hidden card-border">
                                 <div class="bg-light px-3 py-2">
-                                    <h3 class="text-sm font-weight-600 mb-0">
-                                        Personal Information
-                                    </h3>
+                                    <h3 class="text-sm font-weight-600 mb-0">Personal Information</h3>
                                 </div>
+                        
                                 <div class="px-3 py-2">
                                     <div class="row gap-2">
+                        
+                                        <!-- helper: each field uses your label + svg + required asterix; inputs use input-custom; selects use input-custom -->
+                                        <!-- Rowed into two-column layout (col-sm-6 each) -->
+                        
+                                        <!-- Client Name -->
                                         <div class="row">
                                             <div class="col-sm-6">
-                                                <div>
-                                                    <label class="label-custom">Name <span
-                                                            class="text-danger">*</span></label>
-                                                    <span>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                                            class="size-icon">
-                                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                                d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
-                                                        </svg>
-                                                    </span>
-                                                </div>
+                                                <label class="label-custom">Client Name <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
                                             </div>
                                             <div class="col-sm-6">
-                                                <select class="input-custom" name="" id="">
-                                                    <option value="">Selector</option>
+                                                <input class="input-custom" formControlName="clientName" />
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Employee Tax Type -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="label-custom">Employee Tax Type <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <select class="input-custom" formControlName="employeeTaxType">
+                                                    <option value="">Select</option>
                                                 </select>
                                             </div>
                                         </div>
+                        
+                                        <!-- SSN -->
                                         <div class="row">
                                             <div class="col-sm-6">
-                                                <div>
-                                                    <label class="label-custom">Name <span
-                                                            class="text-danger">*</span></label>
-                                                    <span>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                                            class="size-icon">
-                                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                                d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
-                                                        </svg>
-                                                    </span>
-                                                </div>
+                                                <label class="label-custom">SSN <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
                                             </div>
                                             <div class="col-sm-6">
-                                                <input class="input-custom" matInput formControlName="state" />
+                                                <input class="input-custom" formControlName="ssn" />
                                             </div>
                                         </div>
-                                    </div>
+                        
+                                        <!-- Position Name (disabled) -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="label-custom">Position Name <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="input-custom" formControlName="positionName" [disabled]="true" />
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Employee ID -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="label-custom">Employee ID <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="input-custom" formControlName="employeeId" />
+                                            </div>
+                                        </div>
+                        
+                                        <!-- First Name -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="label-custom">First Name <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="input-custom" formControlName="firstName" />
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Middle Name -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="label-custom">Middle Name <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="input-custom" formControlName="middleName" />
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Last Name -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="label-custom">Last Name <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="input-custom" formControlName="lastName" />
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Kurense Account Number (disabled) -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="label-custom">Kurense Account Number <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="input-custom" formControlName="kurenseAccount" [disabled]="true" />
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Kurense Routing Number (disabled) -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="label-custom">Kurense Routing Number <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="input-custom" formControlName="kurenseRouting" [disabled]="true" />
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Employee Supervisor -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="label-custom">Employee Supervisor <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="input-custom" formControlName="employeeSupervisor" />
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Exployee Status (note: spelled as provided) -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="label-custom">Exployee Status <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <select class="input-custom" formControlName="exployeeStatus">
+                                                    <option value="">Select</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Reason code ([disabled]="true") -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="label-custom">Reason code <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="input-custom" formControlName="reasonCode" [disabled]="true" />
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Termination Description ([disabled]="true") -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="label-custom">Termination Description <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="input-custom" formControlName="terminationDescription" [disabled]="true" />
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Termination Date -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="label-custom">Termination Date <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="input-custom" type="date" formControlName="terminationDate" />
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Date of Birth -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="label-custom">Date of Birth <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="input-custom" type="date" formControlName="dateOfBirth" />
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Gender -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="label-custom">Gender <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <select class="input-custom" formControlName="gender">
+                                                    <option value="">Select</option>
+                                                    <option value="male">Male</option>
+                                                    <option value="female">Female</option>
+                                                    <option value="other">Other</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Ethnicity -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="label-custom">Ethnicity <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <select class="input-custom" formControlName="ethnicity">
+                                                    <option value="">Select</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Desgination -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="label-custom">Desgination <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="input-custom" formControlName="desgination" />
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Payment Method -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="label-custom">Payment Method <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <select class="input-custom" formControlName="paymentMethod">
+                                                    <option value="">Select</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Pay Group -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="label-custom">Pay Group <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <select class="input-custom" formControlName="payGroup">
+                                                    <option value="">Select</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                        
+                                        <!-- benefit group -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="label-custom">Benefit Group <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <select class="input-custom" formControlName="benefitGroup">
+                                                    <option value="">Select</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Country -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="label-custom">Country <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <select class="input-custom" formControlName="country">
+                                                    <option value="">Select</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Zip Code (disabled) -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="label-custom">Zip Code <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="input-custom" formControlName="zipCode" [disabled]="true" />
+                                            </div>
+                                        </div>
+                        
+                                        <!-- City (disabled) -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="label-custom">City <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="input-custom" formControlName="city" [disabled]="true" />
+                                            </div>
+                                        </div>
+                        
+                                        <!-- State (disabled) -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="label-custom">State <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="input-custom" formControlName="state" [disabled]="true" />
+                                            </div>
+                                        </div>
+                        
+                                        <!-- geocode ID (disabled) -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="label-custom">geocode ID <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="input-custom" formControlName="geocodeId" [disabled]="true" />
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Job Classification Code -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="label-custom">Job Classification Code <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="input-custom" formControlName="jobClassificationCode" />
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Job Category (disabled) -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="label-custom">Job Category <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="input-custom" formControlName="jobCategory" [disabled]="true" />
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Address Line 1 -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="label-custom">Address Line 1 <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="input-custom" formControlName="addressLine1" />
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Address Line 2 -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="label-custom">Address Line 2 <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="input-custom" formControlName="addressLine2" />
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Location -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="label-custom">Location <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="input-custom" formControlName="location" />
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Suite/Room No -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="label-custom">Suite/Room No <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="input-custom" formControlName="suiteRoomNo" />
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Delivery Address -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="label-custom">Delivery Address <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="input-custom" formControlName="deliveryAddress" />
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Zip Code Extension -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="label-custom">Zip Code Extension <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="input-custom" formControlName="zipCodeExtension" />
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Alien Registration -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="label-custom">Alien Registration <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="input-custom" formControlName="alienRegistration" />
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Alien Registration expiry -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="label-custom">Alien Registration expiry <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="input-custom" type="date" formControlName="alienRegistrationExpiry" />
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Original Hire Date -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="label-custom">Original Hire Date <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="input-custom" type="date" formControlName="originalHireDate" />
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Last Rehire Date -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="label-custom">Last Rehire Date <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="input-custom" type="date" formControlName="lastRehireDate" />
+                                            </div>
+                                        </div>
+                        
+                                        <!-- PTO Policy Limit -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="label-custom">PTO Policy Limit <span class="text-danger">*</span></label>
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="size-icon">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="input-custom" formControlName="ptoPolicyLimit" />
+                                            </div>
+                                        </div>
+                        
+                                    </div> 
                                 </div>
-                            </div>
+                            </div> 
                         </div>
+
                         <div class="col-lg-6">
                             <div class="d-flex flex-column rounded-3 overflow-hidden card-border">
                                 <div class="bg-light px-3 py-2">
                                     <h3 class="text-sm font-weight-600 mb-0">
-                                        Personal Information
+                                        W2 Address
                                     </h3>
                                 </div>
                                 <div class="px-3 py-2">
                                     <div class="row gap-2">
+                                       
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <div>
-                                                    <label class="label-custom">Name <span
-                                                            class="text-danger">*</span></label>
+                                                    <label class="label-custom" for="useMainW2">Use Main Address for W-2 <span class="text-danger">*</span></label>
+                                                   
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="form-check-input" type="checkbox" id="useMainW2" formControlName="useMainAddressW2" />
+                                            </div>
+                                        </div>
+                        
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div>
+                                                    <label class="label-custom">Address Line 1 <span class="text-danger">*</span></label>
                                                     <span>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                                            class="size-icon">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                            stroke-width="1.5" stroke="currentColor" class="size-icon">
                                                             <path stroke-linecap="round" stroke-linejoin="round"
                                                                 d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
                                                         </svg>
@@ -294,87 +968,60 @@
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
-                                                <select class="input-custom" name="" id="">
-                                                    <option value="">Selector</option>
-                                                </select>
+                                                <input class="input-custom" formControlName="w2AddressLine1" />
                                             </div>
                                         </div>
+                        
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <div>
-                                                    <label class="label-custom">Name <span
-                                                            class="text-danger">*</span></label>
-                                                    <span>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                                            class="size-icon">
-                                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                                d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
-                                                        </svg>
-                                                    </span>
+                                                    <label class="label-custom">Address Line 2</label>
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
-                                                <input class="input-custom" matInput formControlName="state" />
+                                                <input class="input-custom" formControlName="w2AddressLine2" />
                                             </div>
                                         </div>
+                        
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div>
+                                                    <label class="label-custom">Zip <span class="text-danger">*</span></label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="input-custom" formControlName="w2Zip" />
+                                            </div>
+                                        </div>
+                        
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div>
+                                                    <label class="label-custom">City <span class="text-danger">*</span></label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="input-custom" formControlName="w2City" />
+                                            </div>
+                                        </div>
+                        
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div>
+                                                    <label class="label-custom">State <span class="text-danger">*</span></label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input class="input-custom" formControlName="w2State" />
+                                            </div>
+                                        </div>
+                        
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="d-flex flex-column rounded-3 overflow-hidden card-border">
-                                <div class="bg-light px-3 py-2">
-                                    <h3 class="text-sm font-weight-600 mb-0">
-                                        Personal Information
-                                    </h3>
-                                </div>
-                                <div class="px-3 py-2">
-                                    <div class="row gap-2">
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <div>
-                                                    <label class="label-custom">Name <span
-                                                            class="text-danger">*</span></label>
-                                                    <span>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                                            class="size-icon">
-                                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                                d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
-                                                        </svg>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <select class="input-custom" name="" id="">
-                                                    <option value="">Selector</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <div>
-                                                    <label class="label-custom">Name <span
-                                                            class="text-danger">*</span></label>
-                                                    <span>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                                            class="size-icon">
-                                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                                d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
-                                                        </svg>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <input class="input-custom" matInput formControlName="state" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+
                     </div>
                 </div>
             </section>
