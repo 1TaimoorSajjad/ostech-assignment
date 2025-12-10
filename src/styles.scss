@@ -322,3 +322,84 @@ body {
   height: 20px;
   fill: #667085;
 }
+
+
+ .logo-circle {
+   width: 40px;
+   height: 40px;
+   border-radius: 8px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background: #fff;
+   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.03);
+ }
+
+ .tag-badge {
+   display: inline-block;
+   background: #eef0f2;
+   color: #242B3A;
+   border-radius: 6px;
+   padding: 2px 8px;
+   font-size: 12px;
+   margin-left: 6px;
+   line-height: 150%;
+ }
+
+ .tag-badge.terminated {
+   background: #fbeaea;
+   color: #b53939;
+ }
+
+ .tag-badge.rehired {
+   background: #f7ead9;
+   color: #9b6b2e;
+ }
+
+ .rates-card {
+   border: 1px solid rgba(0, 0, 0, 0.06);
+   padding: 12px;
+   border-radius: 4px;
+ }
+
+ .rates-row {
+   display: flex;
+   gap: 12px;
+ }
+
+ .rate-col {
+   flex: 1;
+   min-width: 0;
+   padding: 12px;
+   border: 1px solid rgba(0, 0, 0, 0.03);
+   background: #fff;
+   border-radius: 4px;
+   text-align: left;
+ }
+
+ .rate-col.small {
+   padding: 10px;
+   font-size: 14px;
+ }
+
+ .rate-amount {
+   font-weight: 700;
+   font-size: 18px;
+ }
+
+ .rate-label {
+   color: #7b8590;
+   margin-top: 6px;
+   font-size: 13px;
+ }
+
+ .location-item h4 {
+   font-size: 16px;
+   font-weight: 600;
+ }
+
+ @media (max-width:576px) {
+   .rates-row {
+     flex-direction: column;
+   }
+ }
