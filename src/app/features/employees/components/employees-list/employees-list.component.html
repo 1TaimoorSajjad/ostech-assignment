@@ -43,16 +43,24 @@
         <table mat-table [dataSource]="dataSource" class="employee-table">
 
             <ng-container matColumnDef="select">
-                <th mat-header-cell *matHeaderCellDef class="col-select">
-                    <mat-checkbox></mat-checkbox>
+                <th mat-header-cell *matHeaderCellDef class="col-select" style="background-color: #F0F1F3; color: #667085;">
+                    <input type="checkbox" class="checkbox-custom">
                 </th>
                 <td mat-cell *matCellDef="let row" class="col-select">
-                    <mat-checkbox></mat-checkbox>
+                <input type="checkbox" class="checkbox-custom">
+                                       
                 </td>
             </ng-container>
 
             <ng-container matColumnDef="name">
-                <th mat-header-cell *matHeaderCellDef>Name</th>
+                <th mat-header-cell *matHeaderCellDef  style="background-color: #F0F1F3; color: #667085;">
+                    <div class="d-flex align-items-center gap-2">
+                        Name
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-icon">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
+                        </svg>
+                    </div>
+                </th>
                 <td mat-cell *matCellDef="let row" (click)="openDetail(row)" class="name-cell-td">
                     <div class="name-cell d-flex align-items-center">
                         <img [src]="row.avatarUrl" class="avatar" alt="{{ row.firstName }}" />
@@ -64,7 +72,7 @@
                 </td>
             </ng-container>
             <ng-container matColumnDef="actions">
-                <th mat-header-cell *matHeaderCellDef class="col-actions"></th>
+                <th mat-header-cell *matHeaderCellDef class="col-actions" style="background-color: #F0F1F3; color: #667085;"></th>
                 <td mat-cell *matCellDef="let row" class="cell-actions">
                     <button mat-icon-button #menuTrigger="matMenuTrigger" [matMenuTriggerFor]="actionMenu" aria-label="Row actions"
                         (click)="$event.stopPropagation()">
@@ -87,32 +95,73 @@
 
 
             <ng-container matColumnDef="client">
-                <th mat-header-cell *matHeaderCellDef>Client</th>
+                <th mat-header-cell *matHeaderCellDef style="background-color: #F0F1F3; color: #667085;">
+                    <div class="d-flex align-items-center gap-2">
+                    Client
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                        class="size-icon">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
+                    </svg>
+                </div>
+
+                </th>
+                
                 <td mat-cell *matCellDef="let row">{{ row.client }}</td>
             </ng-container>
 
             <ng-container matColumnDef="employeeType">
-                <th mat-header-cell *matHeaderCellDef>Employee Type</th>
+                <th mat-header-cell *matHeaderCellDef style="background-color: #F0F1F3; color: #667085;">
+                    <div class="d-flex align-items-center gap-2" >
+                    Employee Type
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                        class="size-icon">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
+                    </svg>
+                </div></th>
                 <td mat-cell *matCellDef="let row">{{ row.employeeType }}</td>
             </ng-container>
 
             <ng-container matColumnDef="ssn">
-                <th mat-header-cell *matHeaderCellDef>SSN</th>
+                <th mat-header-cell *matHeaderCellDef style="background-color: #F0F1F3; color: #667085;">
+                    <div class="d-flex align-items-center gap-2">
+                        SSN
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                            class="size-icon">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
+                        </svg>
+                    </div>
+                </th>
                 <td mat-cell *matCellDef="let row">{{ row.ssnMasked }}</td>
             </ng-container>
 
             <ng-container matColumnDef="email">
-                <th mat-header-cell *matHeaderCellDef>Email</th>
+                <th mat-header-cell *matHeaderCellDef style="background-color: #F0F1F3; color: #667085;">
+                    <div class="d-flex align-items-center gap-2">
+                        Email
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                            class="size-icon">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
+                        </svg>
+                    </div>
+                </th>
                 <td mat-cell *matCellDef="let row">{{ row.email }}</td>
             </ng-container>
 
             <ng-container matColumnDef="phone">
-                <th mat-header-cell *matHeaderCellDef>Phone Number</th>
+                <th mat-header-cell *matHeaderCellDef style="background-color: #F0F1F3; color: #667085;">
+                    <div class="d-flex align-items-center gap-2">
+                        Phone Number
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                            class="size-icon">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
+                        </svg>
+                    </div>
+                </th>
                 <td mat-cell *matCellDef="let row">{{ row.phone }}</td>
             </ng-container>
 
             <ng-container matColumnDef="invitationStatus">
-                <th mat-header-cell *matHeaderCellDef>Invitation Status</th>
+                <th mat-header-cell *matHeaderCellDef style="background-color: #F0F1F3; color: #667085;">Invitation Status</th>
                 <td mat-cell *matCellDef="let row">
                     <span class="status-pill" [ngClass]="{
               'status-pill--not-invited': row.invitationStatus === false,
@@ -134,8 +183,15 @@
         </table>
 
         <div class="table-footer d-flex justify-content-between align-items-center">
-            <div class="pagination-meta">
-                Page {{ page + 1 }} of {{ totalPages }}
+            <div class=" d-flex justify-content-between align-items-center gap-4">
+                <div class="pagination-meta">
+                    Page {{ page + 1 }} of {{ totalPages }}
+                </div>
+                <div class="pagination-jump d-flex align-items-start gap-1">
+                    <select id="pageSelect" class="pageSelect" [(ngModel)]="selectedPage" (change)="goToPage(selectedPage)">
+                        <option *ngFor="let p of pages" [value]="p">{{ p }}</option>
+                    </select>
+                </div>
             </div>
 
             <div class="pagination-controls d-flex align-items-center gap-2">

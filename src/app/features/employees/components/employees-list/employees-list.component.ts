@@ -33,6 +33,7 @@ export class EmployeesListComponent implements OnInit {
   size = 15;
   total = 0;
 
+  selectedPage: number = 1;
   query = '';
 
   @ViewChild('drawer') drawer?: MatSidenav;
